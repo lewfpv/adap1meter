@@ -1,5 +1,5 @@
-
-![ADA P1 Meter Icon](images/icon.png) # ADA P1 Meter Integration for Home Assistant
+![ADA P1 Meter Icon](images/icon.png) 
+# ADA P1 Meter Integration for Home Assistant
 
 This is a custom integration for [Home Assistant](https://www.home-assistant.io/) that provides sensor data from an ADA P1 Meter, including total energy consumption, phase voltage, current, power factors, and more.
 
