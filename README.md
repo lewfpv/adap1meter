@@ -48,3 +48,5 @@ If you encounter any issues, please check the Home Assistant logs under **Settin
 
 This project is licensed under the MIT License.
 
+![ADA P1 Meter Icon](images/icon.png)
+
