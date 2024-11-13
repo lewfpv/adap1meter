@@ -1,5 +1,11 @@
-![ADA P1 Meter Icon](images/icon.png) 
 # ADA P1 Meter Integration for Home Assistant
+
+![Home Assistant](https://img.shields.io/badge/Supports-Home%20Assistant-blue?style=flat-square)
+![HACS Supported](https://img.shields.io/badge/HACS-Supported-41BDF5?style=flat-square)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/greenhess/adap1meter?style=flat-square)
+![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=flat-square)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)
+![Platform: Sensor](https://img.shields.io/badge/Platform-Sensor-lightgrey?style=flat-square)
 
 This is a custom integration for [Home Assistant](https://www.home-assistant.io/) that provides sensor data from an ADA P1 Meter, including total energy consumption, phase voltage, current, power factors, and more.
 
@@ -48,4 +54,6 @@ If you encounter any issues, please check the Home Assistant logs under **Settin
 ## License
 
 This project is licensed under the MIT License.
+
+![ADA P1 Meter Icon](images/icon.png) 
 
