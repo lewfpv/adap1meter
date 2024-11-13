@@ -1,8 +1,6 @@
 # ADA P1 Meter Integration for Home Assistant
 
-<a href="https://hacs.xyz/" target="_blank">
-    <img src="https://img.shields.io/badge/HACS-Default-orange.svg?style=flat-square" alt="HACS Default" />
-</a>
+![HACS Default](https://img.shields.io/badge/HACS-Default-orange.svg?style=flat-square))
 ![Home Assistant](https://img.shields.io/badge/Supports-Home%20Assistant-blue?style=flat-square)
 ![HACS Supported](https://img.shields.io/badge/HACS-Supported-41BDF5?style=flat-square)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/greenhess/adap1meter?style=flat-square)
