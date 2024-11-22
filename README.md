@@ -52,9 +52,33 @@ If you encounter any issues, please check the Home Assistant logs under **Settin
 
 ---
 
+## Notes on mDNS and `.local` Domains
+
+Issues with mDNS and `.local` domain resolution may occur on certain systems. This can lead to problems when the integration attempts to connect to devices using a `.local` domain. If you encounter this issue, there are a few options to resolve it:
+
+1. Use the device's IP address instead of the `.local` domain.
+2. Set up a local DNS server to resolve `.local` domains within your network.
+
+To address this issue manually in the code, locate the following section in the `__init__.py` file of the integration:
+
+```python
+"""Fetch JSON data from the okosvillanyora.local server."""
+url = "http://okosvillanyora.local:8989/json"
+```
+
+Replace the .local domain with the device's IP address, as shown below:
+
+```python
+"""Fetch JSON data from the okosvillanyora.local server."""
+url = "http://<ADA_DEVICE_IP>:8989/json"
+```
+
+After making this change, restart Home Assistant to apply the updates.
+
+---
+
 ## License
 
 This project is licensed under the MIT License.
 
 ![ADA P1 Meter Icon](images/icon.png) 
-
