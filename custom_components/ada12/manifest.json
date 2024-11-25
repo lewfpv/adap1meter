@@ -7,9 +7,8 @@
   "dependencies": [],
   "codeowners": ["@greenhess"],
   "iot_class": "local_polling",
-  "config_flow": true,
+  "config_flow": false,
   "issue_tracker": "https://github.com/greenhess/adap1meter/issues",
-  "icon": "mdi:gauge",
   "ssdp": [
     {
       "deviceType": "urn:schemas-upnp-org:device:Basic:1",
