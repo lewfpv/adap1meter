@@ -13,23 +13,31 @@ _LOGGER.info("ADA P1 Meter integráció indul")
 DOMAIN = "ada12"
 
 # Alapértelmezett konfigurációs séma
-CONFIG_SCHEMA = vol.Schema(
-    {
-        DOMAIN: vol.Schema(
-            {
-                vol.Optional(CONF_NAME, default="ADA12"): cv.string
-            }
-        )
-    },
-    extra=vol.ALLOW_EXTRA,
-)
+# CONFIG_SCHEMA = vol.Schema(
+#     {
+#         DOMAIN: vol.Schema(
+#             {
+#                 vol.Optional(CONF_NAME, default="ADA12"): cv.string
+#             }
+#         )
+#     },
+#     extra=vol.ALLOW_EXTRA,
+# )
 
 async def async_setup(hass, config):
-    """Set up the ADA P1 Meter component."""
+    """Set up Ada12 from a config entry."""
+    # Tároljuk a konfigurációt a Home Assistant "adat" objektumában
+    hass.data.setdefault(DOMAIN, {})
+    hass.data[DOMAIN][config_entry.entry_id] = config_entry.data
+
+    # Adatok beállítása
+    host = config_entry.data["host"]
+    port = config_entry.data["port"]
+    _LOGGER.info(f"ADA12 configured with host {host} and port {port}")
 
     async def fetch_data():
         """Fetch JSON data from the okosvillanyora.local server."""
-        url = "http://okosvillanyora.local:8989/json"
+        url = f"http://{host}:{port}/json"
         try:
             async with aiohttp.ClientSession() as session:
                 async with async_timeout.timeout(10):
