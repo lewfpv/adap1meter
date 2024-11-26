@@ -50,11 +50,13 @@ class Ada12OptionsFlowHandler(config_entries.OptionsFlow):
     async def async_step_init(self, user_input=None):
         """Manage the options."""
         if user_input is not None:
+            # Mentjük az új beállításokat
             return self.async_create_entry(title="", data=user_input)
 
-        # Példa opciókhoz
+        # Jelenlegi értékek betöltése a konfigurációból
         options_schema = vol.Schema({
-            vol.Optional("debug", default=self.config_entry.options.get("debug", False)): bool,
+            vol.Optional("host", default=self.config_entry.data.get("host", "okosvillanyora.local")): str,
+            vol.Optional("port", default=self.config_entry.data.get("port", 8989)): int,
         })
 
         return self.async_show_form(step_id="init", data_schema=options_schema)
