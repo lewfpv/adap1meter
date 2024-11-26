@@ -1,8 +1,10 @@
 from homeassistant import config_entries
 import voluptuous as vol
 from homeassistant.core import callback
+import logging
 
-DOMAIN = "ada12"  # Az integráció domain neve
+DOMAIN = "ada12"
+_LOGGER = logging.getLogger(__name__)
 
 class Ada12ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle a config flow for Ada12 integration."""
@@ -32,6 +34,23 @@ class Ada12ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema=data_schema,
             errors=errors
         )
+
+    async def async_step_ssdp(self, discovery_info):
+        """Handle SSDP discovery."""
+        _LOGGER.info(f"SSDP discovered device: {discovery_info}")
+
+        # Az SSDP által visszaadott információk alapján ellenőrizzük az eszközt
+        host = discovery_info.get("host")  # Az eszköz IP-címe
+        if not host:
+            return self.async_abort(reason="no_host_found")
+
+        # Egyedi azonosító beállítása (pl. host alapján)
+        await self.async_set_unique_id(host)
+        self._abort_if_unique_id_configured()
+
+        # Alapértelmezett adatokat állítunk be az észlelés alapján
+        self.context.update({"title_placeholders": {"name": f"Ada12 - {host}"}})
+        return self.async_create_entry(title=f"Ada12 - {host}", data={"host": host, "port": 8989})
 
     @staticmethod
     @callback
