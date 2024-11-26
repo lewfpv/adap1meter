@@ -3,11 +3,26 @@ import aiohttp
 import async_timeout
 from datetime import timedelta
 from homeassistant.helpers.event import async_track_time_interval
+import voluptuous as vol
+from homeassistant.const import CONF_NAME
+from homeassistant.helpers import config_validation as cv
 
 _LOGGER = logging.getLogger(__name__)
 _LOGGER.info("ADA P1 Meter integráció indul")
 
 DOMAIN = "ada12"
+
+# Alapértelmezett konfigurációs séma
+CONFIG_SCHEMA = vol.Schema(
+    {
+        DOMAIN: vol.Schema(
+            {
+                vol.Optional(CONF_NAME, default="ADA12"): cv.string
+            }
+        )
+    },
+    extra=vol.ALLOW_EXTRA,
+)
 
 async def async_setup(hass, config):
     """Set up the ADA P1 Meter component."""
