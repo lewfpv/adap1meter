@@ -2,22 +2,21 @@ from homeassistant import config_entries
 import voluptuous as vol
 from homeassistant.core import callback
 
-DOMAIN = "ada12"  # Az integrációd domainje
+DOMAIN = "ada12"  # Az integráció domain neve
 
 class Ada12ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle a config flow for Ada12 integration."""
 
     VERSION = 1  # Verziószám a migrációhoz
-    CONNECTION_CLASS = config_entries.CONN_CLASS_LOCAL_POLL
 
     async def async_step_user(self, user_input=None):
         """Handle the initial step."""
         errors = {}
 
         if user_input is not None:
-            # Itt ellenőrizheted a bemeneteket, például kapcsolódási adatokat
+            # Ellenőrzés (opcionális)
             try:
-                # Validáció, ha szükséges
+                # Ha minden rendben, mentjük a konfigurációt
                 return self.async_create_entry(title="Ada12", data=user_input)
             except Exception:
                 errors["base"] = "cannot_connect"
@@ -29,7 +28,9 @@ class Ada12ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         })
 
         return self.async_show_form(
-            step_id="user", data_schema=data_schema, errors=errors
+            step_id="user",
+            data_schema=data_schema,
+            errors=errors
         )
 
     @staticmethod
