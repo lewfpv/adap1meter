@@ -1,12 +1,12 @@
 {
   "domain": "ada12",
   "name": "ADA Family Meters",
-  "codeowners": ["@greenhess"],
+  "codeowners": ["@lewfpv"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/greenhess/adap1meter",
+  "documentation": "https://github.com/lewfpv/adap1meter",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/greenhess/adap1meter/issues",
+  "issue_tracker": "https://github.com/lewfpv/adap1meter/issues",
   "requirements": ["aiohttp"],
   "ssdp": [
     {
@@ -15,5 +15,5 @@
       "modelName": "ADA"
     }
   ],
-  "version": "1.3.0"
+  "version": "1.3.1"
 }

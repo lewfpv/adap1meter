@@ -1,4 +1,4 @@
-# ADA P1 Meter Integration for Home Assistant
+# ADA P1 Meter Integration for Home Assistant (Modded by LEWFPV)
 
 ![HACS Default](https://img.shields.io/badge/HACS-Default-orange.svg?style=flat-square)
 ![Home Assistant](https://img.shields.io/badge/Supports-Home%20Assistant-blue?style=flat-square)
