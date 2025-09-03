@@ -11,35 +11,38 @@ _LOGGER = logging.getLogger(__name__)
 class Ada12ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle a config flow for Ada12 integration."""
 
-    VERSION = 1
+    VERSION = 1  # Verziószám a migrációhoz
 
     async def async_step_user(self, user_input=None):
+        """Handle the initial step."""
         errors = {}
+
+        product_options = dict(get_product_list())
 
         if user_input is not None:
             try:
                 product_type = user_input.get("product_type", "ada12")
                 title = get_product_name(product_type)
+                device_id = user_input.get("device_id", "")
+                if device_id:
+                    title = f"{title} {device_id}"
                 return self.async_create_entry(title=title, data=user_input)
             except Exception:
                 errors["base"] = "cannot_connect"
 
-        product_options = dict(get_product_list())
         data_schema = vol.Schema({
             vol.Required("product_type", default="ada12"): vol.In(product_options),
-            vol.Optional("host"): str,
-            vol.Optional("port", default=8989): int,
-            vol.Optional("url"): str,
+            vol.Optional("device_id", default=""): str,  # Új mező az egyedi azonosítóhoz
+            vol.Required("host", default="okosvillanyora.local"): str,
+            vol.Required("port", default=8989): int,
         })
 
-        return self.async_show_form(
-            step_id="user",
-            data_schema=data_schema,
-            errors=errors
-        )
+        return self.async_show_form(step_id="user", data_schema=data_schema, errors=errors)
 
     async def async_step_ssdp(self, discovery_info):
+        """Handle SSDP discovery."""
         _LOGGER.info(f"SSDP discovered device: {discovery_info}")
+
         host = discovery_info.get("host")
         if not host:
             return self.async_abort(reason="no_host_found")
@@ -50,12 +53,13 @@ class Ada12ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         self.context.update({"title_placeholders": {"name": f"Ada12 - {host}"}})
         return self.async_create_entry(
             title=f"Ada12 - {host}",
-            data={"product_type": "ada12", "url": f"http://{host}:8989/json"},
+            data={"product_type": "ada12", "host": host, "port": 8989, "device_id": ""},
         )
 
     @staticmethod
     @callback
     def async_get_options_flow(config_entry):
+        """Handle the options flow."""
         return Ada12OptionsFlowHandler(config_entry)
 
 
@@ -71,10 +75,16 @@ class Ada12OptionsFlowHandler(config_entries.OptionsFlow):
 
         product_options = dict(get_product_list())
         options_schema = vol.Schema({
-            vol.Optional("product_type", default=self.config_entry.data.get("product_type", "ada12")): vol.In(product_options),
-            vol.Optional("host", default=self.config_entry.data.get("host")): str,
-            vol.Optional("port", default=self.config_entry.data.get("port", 8989)): int,
-            vol.Optional("url", default=self.config_entry.data.get("url")): str,
+            vol.Optional(
+                "product_type", default=self.config_entry.data.get("product_type", "ada12")
+            ): vol.In(product_options),
+            vol.Optional("device_id", default=self.config_entry.data.get("device_id", "")): str,
+            vol.Optional(
+                "host", default=self.config_entry.data.get("host", "okosvillanyora.local")
+            ): str,
+            vol.Optional(
+                "port", default=self.config_entry.data.get("port", 8989)
+            ): int,
         })
 
         return self.async_show_form(step_id="init", data_schema=options_schema)
