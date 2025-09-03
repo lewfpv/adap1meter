@@ -1,6 +1,6 @@
 {
   "domain": "ada12",
-  "name": "ADA P1 Meter",
+  "name": "ADA Family Meters",
   "codeowners": ["@greenhess"],
   "config_flow": true,
   "dependencies": [],
@@ -12,8 +12,8 @@
     {
       "st": "urn:schemas-upnp-org:device:Basic:1",
       "manufacturer": "GreenHESS",
-      "modelName": "ADA12"
+      "modelName": "ADA"
     }
   ],
-  "version": "1.2.9"
+  "version": "1.3.0"
 }

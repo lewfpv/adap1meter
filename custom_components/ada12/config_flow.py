@@ -2,6 +2,7 @@ from homeassistant import config_entries
 import voluptuous as vol
 from homeassistant.core import callback
 import logging
+from .product_config import get_product_list, get_product_name
 
 DOMAIN = "ada12"
 _LOGGER = logging.getLogger(__name__)
@@ -19,12 +20,16 @@ class Ada12ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             # Ellenőrzés (opcionális)
             try:
                 # Ha minden rendben, mentjük a konfigurációt
-                return self.async_create_entry(title="Ada12", data=user_input)
+                product_type = user_input.get("product_type", "ada12")
+                title = get_product_name(product_type)
+                return self.async_create_entry(title=title, data=user_input)
             except Exception:
                 errors["base"] = "cannot_connect"
 
-        # Példa beviteli mezőkre
+        # Beviteli mezők a termék kiválasztásával
+        product_options = dict(get_product_list())
         data_schema = vol.Schema({
+            vol.Required("product_type", default="ada12"): vol.In(product_options),
             vol.Required("host", default="okosvillanyora.local"): str,
             vol.Required("port", default=8989): int,
         })
@@ -50,7 +55,7 @@ class Ada12ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         # Alapértelmezett adatokat állítunk be az észlelés alapján
         self.context.update({"title_placeholders": {"name": f"Ada12 - {host}"}})
-        return self.async_create_entry(title=f"Ada12 - {host}", data={"host": host, "port": 8989})
+        return self.async_create_entry(title=f"Ada12 - {host}", data={"product_type": "ada12", "host": host, "port": 8989})
 
     @staticmethod
     @callback
@@ -73,7 +78,9 @@ class Ada12OptionsFlowHandler(config_entries.OptionsFlow):
             return self.async_create_entry(title="", data=user_input)
 
         # Jelenlegi értékek betöltése a konfigurációból
+        product_options = dict(get_product_list())
         options_schema = vol.Schema({
+            vol.Optional("product_type", default=self.config_entry.data.get("product_type", "ada12")): vol.In(product_options),
             vol.Optional("host", default=self.config_entry.data.get("host", "okosvillanyora.local")): str,
             vol.Optional("port", default=self.config_entry.data.get("port", 8989)): int,
         })
