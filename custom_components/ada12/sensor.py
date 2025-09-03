@@ -17,21 +17,23 @@ SCAN_INTERVAL = timedelta(seconds=10)
 
 
 async def async_setup_entry(hass, config_entry, async_add_entities):
-    """Set up Ada sensors from config entry."""
     config_data = {**config_entry.data, **config_entry.options}
-    host = config_data.get("host", "okosvillanyora.local")
-    port = config_data.get("port", 8989)
+    device_id = config_data.get("device_id", "")
     product_type = config_data.get("product_type", "ada12")
-    device_id = config_data.get("device_id", "")  # Új mező
+
+    # ------------------------
+    # URL logika
+    # ------------------------
+    url = config_data.get("url")
+    if not url:
+        host = config_data.get("host", "okosvillanyora.local")
+        port = config_data.get("port", 8989)
+        url = f"http://{host}:{port}/json"
 
     product_sensors = get_product_sensors(product_type)
     product_name = get_product_name(product_type)
 
-    # -----------------------------
-    # Coordinator: 1 HTTP hívásból adatok
-    # -----------------------------
     async def async_update_data():
-        url = f"http://{host}:{port}/json"
         try:
             async with aiohttp.ClientSession() as session:
                 async with async_timeout.timeout(10):
@@ -50,10 +52,9 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
     await coordinator.async_config_entry_first_refresh()
 
-    # Szenzor entitások létrehozása
     sensors = []
     for sensor_key, sensor_config in product_sensors.items():
-        unique_id = f"{host}_{product_type}_{sensor_key}"
+        unique_id = f"{url}_{product_type}_{sensor_key}"
         sensors.append(
             Ada12Sensor(
                 coordinator=coordinator,
@@ -69,8 +70,6 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
 
 class Ada12Sensor(CoordinatorEntity, Entity):
-    """Representation of an Ada sensor that uses shared coordinator data."""
-
     def __init__(self, coordinator, product_type, sensor_key, sensor_config, unique_id, name):
         super().__init__(coordinator)
         self._product_type = product_type
