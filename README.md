@@ -82,3 +82,7 @@ After making this change, restart Home Assistant to apply the updates.
 This project is licensed under the MIT License.
 
 ![ADA P1 Meter Icon](images/icon.png) 
+
+## Saját fejlesztés
+
+Ez az én forkomban hozzáadott új rész.
