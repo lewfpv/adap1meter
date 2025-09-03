@@ -1,18 +1,21 @@
 {
-    "title": "ADA P1 Meter Integráció",
+    "title": "ADA Család Mérők Integráció",
     "config": {
         "step": {
             "user": {
-                "title": "Csatlakozás az ADA P1 Meter-hez",
-                "description": "Add meg az ADA P1 Meter csatlakozási adatokat.",
+                "title": "Csatlakozás az ADA Mérőhöz",
+                "description": "Válaszd ki az ADA mérő modelljét és add meg a csatlakozási adatokat.",
                 "data": {
+                    "device_id": "egyedi azonositó megadása (nem kötelező)",
+                    "product_type": "Mérő Modell",
                     "host": "Host (pl. okosvillanyora.local vagy IP-cím)",
-                    "port": "Port (alapértelmezett: 8989)"
+                    "port": "Port (alapértelmezett: 8989)",
+                    "url": "egyedi url megadása (nem kötelező)"
                 }
             }
         },
         "error": {
-            "cannot_connect": "Nem lehet csatlakozni az ADA P1 Meter eszközhöz. Ellenőrizd a beállításokat."
+            "cannot_connect": "Nem lehet csatlakozni az ADA mérő eszközhöz. Ellenőrizd a beállításokat."
         },
         "abort": {
             "already_configured": "Ez az eszköz már konfigurálva van."
