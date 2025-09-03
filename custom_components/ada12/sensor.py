@@ -1,13 +1,23 @@
 import logging
 import aiohttp
 import async_timeout
+from datetime import timedelta
+
 from homeassistant.helpers.entity import Entity
+from homeassistant.helpers.update_coordinator import (
+    CoordinatorEntity,
+    DataUpdateCoordinator,
+    UpdateFailed,
+)
+
 from .product_config import get_product_sensors, get_product_name
 
 _LOGGER = logging.getLogger(__name__)
+SCAN_INTERVAL = timedelta(seconds=10)
+
 
 async def async_setup_entry(hass, config_entry, async_add_entities):
-    """Set up Ada12 sensors from config entry."""
+    """Set up Ada sensors from config entry."""
     config_data = {**config_entry.data, **config_entry.options}
     host = config_data.get("host", "okosvillanyora.local")
     port = config_data.get("port", 8989)
@@ -16,13 +26,37 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     product_sensors = get_product_sensors(product_type)
     product_name = get_product_name(product_type)
 
+    # -----------------------------
+    # Coordinator: 1 HTTP hívásból adatok
+    # -----------------------------
+    async def async_update_data():
+        url = f"http://{host}:{port}/json"
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with async_timeout.timeout(10):
+                    async with session.get(url) as response:
+                        return await response.json()
+        except Exception as err:
+            raise UpdateFailed(f"Error fetching data from {url}: {err}") from err
+
+    coordinator = DataUpdateCoordinator(
+        hass,
+        _LOGGER,
+        name=f"{product_name} ({host}) coordinator",
+        update_method=async_update_data,
+        update_interval=SCAN_INTERVAL,
+    )
+
+    # Első frissítés indítása
+    await coordinator.async_config_entry_first_refresh()
+
+    # Szenzor entitások létrehozása
     sensors = []
     for sensor_key, sensor_config in product_sensors.items():
         unique_id = f"{host}_{product_type}_{sensor_key}"
         sensors.append(
             Ada12Sensor(
-                host=host,
-                port=port,
+                coordinator=coordinator,
                 product_type=product_type,
                 sensor_key=sensor_key,
                 sensor_config=sensor_config,
@@ -31,21 +65,19 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
             )
         )
 
-    async_add_entities(sensors, update_before_add=True)
+    async_add_entities(sensors)
 
 
-class Ada12Sensor(Entity):
-    """Representation of an Ada12 sensor."""
+class Ada12Sensor(CoordinatorEntity, Entity):
+    """Representation of an Ada sensor that uses shared coordinator data."""
 
-    def __init__(self, host, port, product_type, sensor_key, sensor_config, unique_id, name):
-        self._host = host
-        self._port = port
+    def __init__(self, coordinator, product_type, sensor_key, sensor_config, unique_id, name):
+        super().__init__(coordinator)
         self._product_type = product_type
         self._sensor_key = sensor_key
         self._sensor_config = sensor_config
         self._unique_id = unique_id
         self._name = name
-        self._state = None
         self._attributes = {"icon": sensor_config["icon"]}
         if sensor_config["unit"]:
             self._attributes["unit_of_measurement"] = sensor_config["unit"]
@@ -60,23 +92,12 @@ class Ada12Sensor(Entity):
 
     @property
     def state(self):
-        return self._state
+        data = self.coordinator.data or {}
+        return data.get(
+            self._sensor_key,
+            0 if self._sensor_config["unit"] else "",
+        )
 
     @property
     def extra_state_attributes(self):
         return self._attributes
-
-    async def async_update(self):
-        url = f"http://{self._host}:{self._port}/json"
-        try:
-            async with aiohttp.ClientSession() as session:
-                async with async_timeout.timeout(10):
-                    async with session.get(url) as response:
-                        data = await response.json()
-                        self._state = data.get(
-                            self._sensor_key,
-                            0 if self._sensor_config["unit"] else "",
-                        )
-        except Exception as e:
-            _LOGGER.error(f"Error fetching {self._sensor_key} data: {e}")
-            self._state = None
