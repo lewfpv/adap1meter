@@ -19,18 +19,20 @@ SCAN_INTERVAL = timedelta(seconds=10)
 async def async_setup_entry(hass, config_entry, async_add_entities):
     """Set up Ada sensors from config entry."""
     config_data = {**config_entry.data, **config_entry.options}
-    host = config_data.get("host", "okosvillanyora.local")
-    port = config_data.get("port", 8989)
-    product_type = config_data.get("product_type", "ada12")
 
+    # Ha van teljes URL, használjuk azt, egyébként host+port-ból állítjuk elő
+    url = config_data.get("url")
+    host = config_data.get("host")
+    port = config_data.get("port", 8989)
+
+    if not url:
+        url = f"http://{host}:{port}/json"
+
+    product_type = config_data.get("product_type", "ada12")
     product_sensors = get_product_sensors(product_type)
     product_name = get_product_name(product_type)
 
-    # -----------------------------
-    # Coordinator: 1 HTTP hívásból adatok
-    # -----------------------------
     async def async_update_data():
-        url = f"http://{host}:{port}/json"
         try:
             async with aiohttp.ClientSession() as session:
                 async with async_timeout.timeout(10):
@@ -42,18 +44,16 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     coordinator = DataUpdateCoordinator(
         hass,
         _LOGGER,
-        name=f"{product_name} ({host}) coordinator",
+        name=f"{product_name} coordinator",
         update_method=async_update_data,
         update_interval=SCAN_INTERVAL,
     )
 
-    # Első frissítés indítása
     await coordinator.async_config_entry_first_refresh()
 
-    # Szenzor entitások létrehozása
     sensors = []
     for sensor_key, sensor_config in product_sensors.items():
-        unique_id = f"{host}_{product_type}_{sensor_key}"
+        unique_id = f"{url}_{product_type}_{sensor_key}"
         sensors.append(
             Ada12Sensor(
                 coordinator=coordinator,
@@ -61,7 +61,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
                 sensor_key=sensor_key,
                 sensor_config=sensor_config,
                 unique_id=unique_id,
-                name=f"{product_name} ({host}) {sensor_config['friendly_name']}",
+                name=f"{product_name} {sensor_config['friendly_name']}",
             )
         )
 
