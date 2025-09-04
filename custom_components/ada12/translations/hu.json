@@ -6,7 +6,7 @@
                 "title": "Csatlakozás az ADA Mérőhöz",
                 "description": "Válaszd ki az ADA mérő modelljét és add meg a csatlakozási adatokat.",
                 "data": {
-                    "device_id": "egyedi azonositó megadása (nem kötelező)",
+                    "prefix": "előtag (nem kötelező)",
                     "product_type": "Mérő Modell",
                     "host": "Host (pl. okosvillanyora.local vagy IP-cím)",
                     "port": "Port (alapértelmezett: 8989)",

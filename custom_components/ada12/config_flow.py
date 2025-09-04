@@ -18,7 +18,7 @@ class Ada12ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             try:
                 product_type = user_input.get("product_type", "ada12")
-                prefix = user_input.get("prefix", "").strip()
+                prefix = user_input.get("prefix", "")
                 title = get_product_name(product_type)
                 if prefix:
                     title = f"{prefix} {title}"
@@ -26,11 +26,13 @@ class Ada12ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             except Exception:
                 errors["base"] = "cannot_connect"
 
-        # Csak product_type, prefix és url
+        # Form schema: lehet host+port vagy teljes URL
         data_schema = vol.Schema({
             vol.Required("product_type", default="ada12"): vol.In(product_options),
             vol.Optional("prefix", default=""): str,
-            vol.Required("url", default="http://okosvillanyora.local:8989/json"): str,
+            vol.Optional("host", default=""): str,
+            vol.Optional("port", default=8989): int,
+            vol.Optional("url", default=""): str,
         })
 
         return self.async_show_form(step_id="user", data_schema=data_schema, errors=errors)
@@ -55,7 +57,9 @@ class Ada12OptionsFlowHandler(config_entries.OptionsFlow):
                 "product_type", default=self.config_entry.data.get("product_type", "ada12")
             ): vol.In(product_options),
             vol.Optional("prefix", default=self.config_entry.data.get("prefix", "")): str,
-            vol.Required("url", default=self.config_entry.data.get("url", "http://okosvillanyora.local:8989/json")): str,
+            vol.Optional("host", default=self.config_entry.data.get("host", "")): str,
+            vol.Optional("port", default=self.config_entry.data.get("port", 8989)): int,
+            vol.Optional("url", default=self.config_entry.data.get("url", "")): str,
         })
 
         return self.async_show_form(step_id="init", data_schema=options_schema)

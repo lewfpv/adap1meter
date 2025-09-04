@@ -18,24 +18,20 @@ SCAN_INTERVAL = timedelta(seconds=10)
 
 async def async_setup_entry(hass, config_entry, async_add_entities):
     config_data = {**config_entry.data, **config_entry.options}
+    prefix = config_data.get("prefix", "")
     product_type = config_data.get("product_type", "ada12")
-    prefix = config_data.get("prefix", "").strip()
 
     # ------------------------
-    # URL logika (kötelező mező)
+    # URL logika
     # ------------------------
     url = config_data.get("url")
     if not url:
-        raise ValueError("URL must be specified in configuration")
+        host = config_data.get("host", "okosvillanyora.local")
+        port = config_data.get("port", 8989)
+        url = f"http://{host}:{port}/json"
 
     product_sensors = get_product_sensors(product_type)
     product_name = get_product_name(product_type)
-
-    # prefix hozzáadása a product_name elé
-    if prefix:
-        display_name = f"{prefix} {product_name}"
-    else:
-        display_name = product_name
 
     async def async_update_data():
         try:
@@ -49,7 +45,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     coordinator = DataUpdateCoordinator(
         hass,
         _LOGGER,
-        name=f"{display_name} coordinator",
+        name=f"{product_name} {prefix} coordinator",
         update_method=async_update_data,
         update_interval=SCAN_INTERVAL,
     )
@@ -58,16 +54,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
     sensors = []
     for sensor_key, sensor_config in product_sensors.items():
-        # unique_id tartalmazza a prefixet is
-        unique_id_parts = [url, product_type, sensor_key]
-        if prefix:
-            unique_id_parts.insert(0, prefix)
-        unique_id = "_".join(unique_id_parts)
-
-        # név prefix-szel
-        name_parts = [display_name, sensor_config["friendly_name"]]
-        sensor_name = " ".join(name_parts)
-
+        unique_id = f"{url}_{product_type}_{sensor_key}"
         sensors.append(
             Ada12Sensor(
                 coordinator=coordinator,
@@ -75,7 +62,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
                 sensor_key=sensor_key,
                 sensor_config=sensor_config,
                 unique_id=unique_id,
-                name=sensor_name,
+                name=f"{product_name} {prefix} {sensor_config['friendly_name']}",
             )
         )
 
