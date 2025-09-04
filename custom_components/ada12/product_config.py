@@ -149,52 +149,6 @@ PRODUCT_CONFIGS = {
             }
         }
     },
-    "adanode": {
-        "name": "ADA Node",
-        "description": "Single phase meter with basic monitoring",
-        "sensors": {
-            "active_import_energy_total": {
-                "unit": "kWh",
-                "friendly_name": "Összes importált energia",
-                "icon": "mdi:transmission-tower-import"
-            },
-            "active_import_energy_tariff_1": {
-                "unit": "kWh",
-                "friendly_name": "Importált energia tarifa 1",
-                "icon": "mdi:transmission-tower-import"
-            },
-            "active_import_energy_tariff_2": {
-                "unit": "kWh",
-                "friendly_name": "Importált energia tarifa 2",
-                "icon": "mdi:transmission-tower-import"
-            },
-            "voltage_phase_l1": {
-                "unit": "V",
-                "friendly_name": "Fázis 1 (L1) feszültség",
-                "icon": "mdi:flash"
-            },
-            "current_phase_l1": {
-                "unit": "A",
-                "friendly_name": "Fázis 1 (L1) áramerősség",
-                "icon": "mdi:current-ac"
-            },
-            "power_factor": {
-                "unit": "",
-                "friendly_name": "Teljesítménytényező",
-                "icon": "mdi:cosine-wave"
-            },
-            "frequency": {
-                "unit": "Hz",
-                "friendly_name": "Frekvencia",
-                "icon": "mdi:waveform"
-            },
-            "instantaneous_power_import": {
-                "unit": "kW",
-                "friendly_name": "Pillanatnyi importált teljesítmény",
-                "icon": "mdi:flash"
-            }
-        }
-    },
     "adabridge": {
         "name": "ADA Bridge",
         "description": "Compact meter with minimal sensors",
