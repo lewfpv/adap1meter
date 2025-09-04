@@ -1,9 +1,8 @@
-# ADA P1 Meter Integration for Home Assistant (Modded by LEWFPV)
+# ADA Family Meter Integration for Home Assistant (by LEWFPV)
 
 ![HACS Default](https://img.shields.io/badge/HACS-Default-orange.svg?style=flat-square)
 ![Home Assistant](https://img.shields.io/badge/Supports-Home%20Assistant-blue?style=flat-square)
 ![HACS Supported](https://img.shields.io/badge/HACS-Supported-41BDF5?style=flat-square)
-`![GitHub release (latest by date)](https://img.shields.io/github/v/release/lewfpv/adap1meter?style=flat-square)'`
 ![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/lewfpv/adap1meter/main/custom_components/ada12/manifest.json&query=$.version&label=verzió&color=blue)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=flat-square)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)
@@ -82,8 +81,4 @@ After making this change, restart Home Assistant to apply the updates.
 
 This project is licensed under the MIT License.
 
-![ADA P1 Meter Icon](images/icon.png) 
-
-## Saját fejlesztés
-
-Ez az én forkomban hozzáadott új rész.
+![ADA P1 Meter Icon](images/icon.png)
