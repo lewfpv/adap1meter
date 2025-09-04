@@ -45,7 +45,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     coordinator = DataUpdateCoordinator(
         hass,
         _LOGGER,
-        name=f"{product_name} {prefix} coordinator",
+        name=f"{prefix} {product_name} coordinator",
         update_method=async_update_data,
         update_interval=SCAN_INTERVAL,
     )
@@ -62,7 +62,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
                 sensor_key=sensor_key,
                 sensor_config=sensor_config,
                 unique_id=unique_id,
-                name=f"{product_name} {prefix} {sensor_config['friendly_name']}",
+                name=f"{prefix} {product_name} {sensor_config['friendly_name']}",
             )
         )
 
