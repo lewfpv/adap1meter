@@ -6,6 +6,7 @@
   "dependencies": [],
   "documentation": "https://github.com/lewfpv/adap1meter",
   "iot_class": "local_polling",
+  "icon": "mdi:transmission-tower-import",
   "issue_tracker": "https://github.com/lewfpv/adap1meter/issues",
   "requirements": ["aiohttp"],
   "ssdp": [
