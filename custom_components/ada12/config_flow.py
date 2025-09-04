@@ -2,7 +2,7 @@ from homeassistant import config_entries
 import voluptuous as vol
 from homeassistant.core import callback
 import logging
-from .product_config import get_product_list, get_product_name
+from .product_config import get_product_list, get_product_name, PRODUCT_CONFIGS
 
 DOMAIN = "ada12"
 _LOGGER = logging.getLogger(__name__)
