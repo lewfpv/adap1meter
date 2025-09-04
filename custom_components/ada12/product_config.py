@@ -5,6 +5,8 @@ PRODUCT_CONFIGS = {
     "ada12": {
         "name": "ADA P1 Meter",
         "description": "Full-featured smart meter with all sensors",
+        "host": "okosvillanyora.local",
+        "default_port": "8989",
         "sensors": {
             "active_import_energy_total": {
                 "unit": "kWh",
@@ -116,6 +118,8 @@ PRODUCT_CONFIGS = {
     "adaone": {
         "name": "ADA One",
         "description": "Basic meter with essential sensors only",
+        "host": "adaone.local",
+        "default_port": "80",
         "sensors": {
             "active_import_energy_total": {
                 "unit": "kWh",
@@ -152,6 +156,8 @@ PRODUCT_CONFIGS = {
     "adabridge": {
         "name": "ADA Bridge",
         "description": "Compact meter with minimal sensors",
+        "host": "adabridge.local",
+        "default_port": "80",
         "sensors": {
             "active_import_energy_total": {
                 "unit": "kWh",
@@ -178,6 +184,8 @@ PRODUCT_CONFIGS = {
     "adapziote02": {
         "name": "ADA PZIOT-E02",
         "description": "Compact meter with minimal sensors",
+        "host": "pziot-e02.local",
+        "default_port": "80",
         "sensors": {
             "active_import_energy_total": {
                 "unit": "kWh",

@@ -26,12 +26,18 @@ class Ada12ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             except Exception:
                 errors["base"] = "cannot_connect"
 
+
+        product_options = {
+            key: f"{conf['name']} (host: {conf['host']}, port: {conf['default_port']})"
+            for key, conf in PRODUCT_CONFIGS.items()
+        }
+
         # Form schema: lehet host+port vagy teljes URL
         data_schema = vol.Schema({
             vol.Required("product_type", default="ada12"): vol.In(product_options),
             vol.Optional("prefix", default=""): str,
             vol.Optional("host", default=""): str,
-            vol.Optional("port", default=8989): int,
+            vol.Optional("port", default=""): int,
             vol.Optional("url", default=""): str,
         })
 
