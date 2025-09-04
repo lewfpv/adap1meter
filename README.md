@@ -3,8 +3,8 @@
 ![HACS Default](https://img.shields.io/badge/HACS-Default-orange.svg?style=flat-square)
 ![Home Assistant](https://img.shields.io/badge/Supports-Home%20Assistant-blue?style=flat-square)
 ![HACS Supported](https://img.shields.io/badge/HACS-Supported-41BDF5?style=flat-square)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/lewfpv/adap1meter?style=flat-square)
-![Verzió](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/lewfpv/adap1meter/main/custom_components/ada12/manifest.json&query=$.version&label=verzió&color=blue)
+`![GitHub release (latest by date)](https://img.shields.io/github/v/release/lewfpv/adap1meter?style=flat-square)'`
+![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/lewfpv/adap1meter/main/custom_components/ada12/manifest.json&query=$.version&label=verzió&color=blue)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=flat-square)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)
 ![Platform: Sensor](https://img.shields.io/badge/Platform-Sensor-lightgrey?style=flat-square)
