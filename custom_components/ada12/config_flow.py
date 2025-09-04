@@ -18,21 +18,19 @@ class Ada12ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             try:
                 product_type = user_input.get("product_type", "ada12")
-                device_id = user_input.get("device_id", "")
+                prefix = user_input.get("prefix", "").strip()
                 title = get_product_name(product_type)
-                if device_id:
-                    title = f"{title} {device_id}"
+                if prefix:
+                    title = f"{prefix} {title}"
                 return self.async_create_entry(title=title, data=user_input)
             except Exception:
                 errors["base"] = "cannot_connect"
 
-        # Form schema: lehet host+port vagy teljes URL
+        # Csak product_type, prefix és url
         data_schema = vol.Schema({
             vol.Required("product_type", default="ada12"): vol.In(product_options),
-            vol.Optional("device_id", default=""): str,
-            vol.Optional("host", default=""): str,
-            vol.Optional("port", default=8989): int,
-            vol.Optional("url", default=""): str,
+            vol.Optional("prefix", default=""): str,
+            vol.Required("url", default="http://okosvillanyora.local:8989/json"): str,
         })
 
         return self.async_show_form(step_id="user", data_schema=data_schema, errors=errors)
@@ -56,10 +54,8 @@ class Ada12OptionsFlowHandler(config_entries.OptionsFlow):
             vol.Optional(
                 "product_type", default=self.config_entry.data.get("product_type", "ada12")
             ): vol.In(product_options),
-            vol.Optional("device_id", default=self.config_entry.data.get("device_id", "")): str,
-            vol.Optional("host", default=self.config_entry.data.get("host", "")): str,
-            vol.Optional("port", default=self.config_entry.data.get("port", 8989)): int,
-            vol.Optional("url", default=self.config_entry.data.get("url", "")): str,
+            vol.Optional("prefix", default=self.config_entry.data.get("prefix", "")): str,
+            vol.Required("url", default=self.config_entry.data.get("url", "http://okosvillanyora.local:8989/json")): str,
         })
 
         return self.async_show_form(step_id="init", data_schema=options_schema)
