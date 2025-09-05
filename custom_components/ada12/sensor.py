@@ -62,6 +62,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
                 sensor_key=sensor_key,
                 sensor_config=sensor_config,
                 unique_id=unique_id,
+                prefix=prefix,
                 name=f"{prefix} {product_name} {sensor_config['friendly_name']}",
             )
         )
@@ -70,15 +71,24 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
 
 class Ada12Sensor(CoordinatorEntity, Entity):
-    def __init__(self, coordinator, product_type, sensor_key, sensor_config, unique_id, name):
+    ENERGY_SENSORS = ["active_import_energy_total", "active_export_energy_total"]
+
+    def __init__(self, coordinator, product_type, sensor_key, sensor_config, unique_id, prefix, name):
         super().__init__(coordinator)
         self._product_type = product_type
         self._sensor_key = sensor_key
         self._sensor_config = sensor_config
         self._unique_id = unique_id
+        self._prefix = prefix
         self._name = name
         self._attributes = {"icon": sensor_config["icon"]}
-        if sensor_config["unit"]:
+
+        # Energy panelhez szükséges beállítás
+        if sensor_key in self.ENERGY_SENSORS:
+            self._attributes["device_class"] = "energy"
+            self._attributes["state_class"] = "measurement"
+            self._attributes["unit_of_measurement"] = "kWh"
+        elif sensor_config["unit"]:
             self._attributes["unit_of_measurement"] = sensor_config["unit"]
 
     @property
