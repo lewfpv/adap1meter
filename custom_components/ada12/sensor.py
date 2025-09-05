@@ -86,7 +86,7 @@ class Ada12Sensor(CoordinatorEntity, Entity):
         # Energy panelhez szükséges beállítás
         if sensor_key in self.ENERGY_SENSORS:
             self._attributes["device_class"] = "energy"
-            self._attributes["state_class"] = "measurement"
+            self._attributes["state_class"] = "total_increasing"
             self._attributes["unit_of_measurement"] = "kWh"
         elif sensor_config["unit"]:
             self._attributes["unit_of_measurement"] = sensor_config["unit"]
