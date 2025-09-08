@@ -19,8 +19,8 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 
 ## Installation
 
-### HACS Installation (Recommended)
-1. Add this repository to HACS as a custom repository.
+### HACS [Home Assistant Community Store] Installation (Recommended)
+1. Add this repository to HACS as a custom repository. Go to HACS -> Custom repositories (top right corner).
 
 ![add custom repo png](images/addcustomrepo.png)
 
@@ -29,14 +29,17 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 
 ### Manual Installation
 1. Download the files from this repository.
-2. Place them in your Home Assistant `custom_components/ada12` directory.
+2. Place them in your Home Assistant `custom_components/greenhess` directory.
 3. Restart Home Assistant.
 
 ## Configuration
 
 To configure the integration:
 1. Go to **Settings** > **Devices & Services** > **Add Integration**.
-2. Search for "ADA P1 Meter" and enter the connection details (e.g., hostname and port).
+2. Search for "ADA Family Meters", select model, enter the connection details (e.g., hostname and port). You can use custom url too (url must contain valid json data).
+
+![connect to png](images/connecttoada.png)
+
 3. The integration will create sensors for each available measurement from the meter.
 
 ## Supported Sensors
