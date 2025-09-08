@@ -1,4 +1,4 @@
-# ADA Family Meter Integration for Home Assistant (by LEWFPV)
+# ADA Family Meters Integration for Home Assistant
 
 ![HACS Default](https://img.shields.io/badge/HACS-Default-orange.svg?style=flat-square)
 ![Home Assistant](https://img.shields.io/badge/Supports-Home%20Assistant-blue?style=flat-square)

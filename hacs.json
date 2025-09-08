@@ -1,5 +1,5 @@
 {
-  "name": "ADA P1 Meter",
+  "name": "ADA Family Meters",
   "homeassistant": "2022.12.0",
   "render_readme": true,
   "domains": ["sensor"],
