@@ -21,6 +21,7 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 
 ### HACS [Home Assistant Community Store] Installation (Recommended)
 1. Add this repository to HACS as a custom repository. Go to HACS -> Custom repositories (top right corner).
+(Required to install HACS first follow this-> https://www.hacs.xyz/docs/use/download/download/#to-download-hacs)
 
 ![add custom repo png](images/addcustomrepo.png)
 
