@@ -8,7 +8,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)
 ![Platform: Sensor](https://img.shields.io/badge/Platform-Sensor-lightgrey?style=flat-square)
 
-This is a custom integration for [Home Assistant](https://www.home-assistant.io/) that provides sensor data from an ADA P1 Meter, including total energy consumption, phase voltage, current, power factors, and more.
+This is a custom integration for [Home Assistant](https://www.home-assistant.io/) that provides sensor data from an ADA Meter, including total energy consumption, phase voltage, current, power factors, and more.
 
 ## Features
 
