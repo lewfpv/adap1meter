@@ -1,5 +1,5 @@
 {
-  "domain": "ada12",
+  "domain": "greenhess",
   "name": "ADA Family Meters",
   "codeowners": ["@lewfpv"],
   "config_flow": true,
@@ -16,5 +16,5 @@
       "modelName": "ADA"
     }
   ],
-  "version": "1.3.4"
+  "version": "1.3.5"
 }
