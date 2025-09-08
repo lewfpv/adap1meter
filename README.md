@@ -36,7 +36,7 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 
 To configure the integration:
 1. Go to **Settings** > **Devices & Services** > **Add Integration**.
-2. Search for "ADA Family Meters", select model, enter the connection details (e.g., hostname and port) or can use custom url (url must contain valid json data). If you add multiple devices from the same model you can use prefix for better idetification.
+2. Search for "ADA Family Meters", select model, enter the connection details (e.g., hostname and port) or can use custom url (url must contain valid json data). If you add multiple devices from the same model you can use prefix for better identification.
 
 ![connect to png](images/connecttoada.png)
 
