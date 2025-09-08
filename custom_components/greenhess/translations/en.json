@@ -3,16 +3,19 @@
     "config": {
         "step": {
             "user": {
-                "title": "Connect to ADA P1 Meter",
-                "description": "Enter the connection details for the ADA P1 Meter.",
+                "title": "Connect to ADA Meter",
+                "description": "Select an ADA model and add connection details.",
                 "data": {
+                    "prefix": "prefix (optional)",
+                    "product_type": "Model",
                     "host": "Host (e.g., okosvillanyora.local or IP address)",
-                    "port": "Port (default: 8989)"
+                    "port": "Port (default: 8989)",
+                    "url": "custom url (optional)"
                 }
             }
         },
         "error": {
-            "cannot_connect": "Unable to connect to the ADA P1 Meter. Please check your settings."
+            "cannot_connect": "Unable to connect to the ADA Meter. Please check your settings."
         },
         "abort": {
             "already_configured": "This device is already configured."
