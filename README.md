@@ -21,7 +21,10 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 
 ### HACS Installation (Recommended)
 1. Add this repository to HACS as a custom repository.
-2. Search for "ADA P1 Meter" in the HACS store and install it.
+
+![add custom repo png](images/addcustomrepo.png)
+
+2. Search for "ADA Family Meters" in the HACS store and install it.
 3. Restart Home Assistant.
 
 ### Manual Installation
