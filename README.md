@@ -69,6 +69,37 @@ To configure the integration:
 - **Frequency** (Hz)
 - And more...
 
+<details>
+  <summary>custom_components/greenhess/product_config.py</summary>
+
+```python
+PRODUCT_CONFIGS = {
+    "ada12": {
+        "name": "ADA P1 Meter",
+        "description": "Full-featured smart meter with all sensors",
+        "host": "okosvillanyora.local",
+        "default_port": 8989,
+        "sensors": {
+        # Összesített energia
+        "active_import_energy_total": {
+            "unit": "kWh",
+            "friendly_name": "Összes importált energia",
+            "icon": "mdi:transmission-tower-import"
+        },
+        "active_export_energy_total": {
+            "unit": "kWh",
+            "friendly_name": "Összes exportált energia",
+            "icon": "mdi:transmission-tower-export"
+        },
+        "total_active_energy": {
+            "unit": "kWh",
+            "friendly_name": "Összes aktív energia",
+            "icon": "mdi:lightning-bolt"
+        },
+        ...
+```
+</details>
+
 ## Troubleshooting
 
 If you encounter any issues, please check the Home Assistant logs under **Settings** > **Logs**. For more help, create an issue in this repository.
