@@ -3,12 +3,19 @@
 ![HACS Default](https://img.shields.io/badge/HACS-Default-orange.svg?style=flat-square)
 ![Home Assistant](https://img.shields.io/badge/Supports-Home%20Assistant-blue?style=flat-square)
 ![HACS Supported](https://img.shields.io/badge/HACS-Supported-41BDF5?style=flat-square)
-![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/lewfpv/adap1meter/main/custom_components/greenhess/manifest.json&query=$.version&label=verzió&color=blue)
+![Version](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/lewfpv/adap1meter/main/custom_components/greenhess/manifest.json&query=$.version&label=version&color=blue)
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green?style=flat-square)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)
 ![Platform: Sensor](https://img.shields.io/badge/Platform-Sensor-lightgrey?style=flat-square)
 
 This is a custom integration for [Home Assistant](https://www.home-assistant.io/) that provides sensor data from an ADA Meter, including total energy consumption, phase voltage, current, power factors, and more.
+
+## Compatible devices
+
+- **ADA P1 Meter
+- **ADA One**
+- **ADA Bridge**
+- **ADA PZIOT-E02**
 
 ## Features
 
@@ -21,7 +28,7 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 
 ### HACS [Home Assistant Community Store] Installation (Recommended)
 1. Add this repository to HACS as a custom repository. Go to HACS -> Custom repositories (top right corner).
-(Required to install HACS first follow this-> https://www.hacs.xyz/docs/use/download/download/#to-download-hacs)
+(Required to install HACS first follow -> [THIS](https://www.hacs.xyz/docs/use/download/download/#to-download-hacs "HACS install tutorial"))
 
 ![add custom repo png](images/addcustomrepo.png)
 
