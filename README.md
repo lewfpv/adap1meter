@@ -12,14 +12,19 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 
 ## Compatible devices
 
-- **ADA P1 Meter
-- **ADA One**
-- **ADA Bridge**
-- **ADA PZIOT-E02**
+|						|(images/0.jpg)			|(images/1.jpg)			|(images/3.jpg)			|(images/4.jpg)			|
+|						|**ADA P1 Meter**		|**ADA One**			|**ADA Bridge**			|**ADA PZIOT-E02**		|
+|----------------------:|:---------------------:|:---------------------:|:---------------------:|:---------------------:|
+|ESP Model				|ESP32 WROOM			|ESP D1 Mini			|ESP32 WROOM U32		|ESP8266EX				|
+|Hardware/Firmware		|GreenHESS				|GreenHESS				|GreenHESS				|Peacefair/GreenHESS	|
+|Functions				|36 datapoints, MQTT	|24 datapoints, MQTT	|Telegram API			|6 datapoints, MQTT 	|
+|Connection				|RJ12 (P1 Port)			|RJ12 (P1 Port)			|USB					|DIN					|
+|Configure with			|WiFi hotspot			|WiFi hotspot			|USB					|WiFi hotspot			|
+|Data collection		|Serial, DSMR, Telegram	|Serial, DSMR, Telegram	|API, DSMR, Telegram	|Modbus					|
+|Home Assistant ready	|✅						|✅						|✅						|✅						|
+|MQTT Connection		|Optional				|okosvillanyora.hu		|Optional				|okosvillanyora.hu		|
 
-|ADA P1 Meter	|ADA One		|ADA Bridge		|ADA PZIOT-E02	|
-|:-------------:|:-------------:|:-------------:|:-------------:|
-|ESP32 WROOM	|ESP D1 Mini	|ESP32 WROOM U32|ESP8266EX		|
+[More information...](https://greenhess.com/ismerd-meg-az-uj-ada-termekeinket "More information...")
 
 ## Features
 
