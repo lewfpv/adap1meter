@@ -33,7 +33,7 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 ![add custom repo png](images/addcustomrepo.png)
 
 2. Search for "ADA Family Meters" in the HACS store and install it.
-3. Restart Home Assistant.
+3. Restart Home Assistant. :sparkles:
 
 ### Manual Installation
 1. Download the files from this repository.
