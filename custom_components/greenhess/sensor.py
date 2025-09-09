@@ -106,4 +106,6 @@ class Ada12Sensor(CoordinatorEntity, Entity):
 
     @property
     def extra_state_attributes(self):
-        return self._attributes
+    attrs = dict(self._attributes)  # másolat készítése az eredeti attribútumokról
+    attrs["unique_id"] = self._unique_id  # hozzáadjuk a unique_id-t
+    return attrs
