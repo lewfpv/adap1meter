@@ -17,6 +17,10 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 - **ADA Bridge**
 - **ADA PZIOT-E02**
 
+|ADA P1 Meter	|ADA One		|ADA Bridge		|ADA PZIOT-E02	|
+|:-------------:|:-------------:|:-------------:|:-------------:|
+|ESP32 WROOM	|ESP D1 Mini	|ESP32 WROOM U32|ESP8266EX		|
+
 ## Features
 
 - **Total Imported and Exported Energy** (active and reactive)
@@ -37,7 +41,7 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 
 ### Manual Installation
 1. Download the files from this repository.
-2. Place them in your Home Assistant `custom_components/greenhess` directory.
+2. Place the `greenhess` folder in your Home Assistant `custom_components/` directory.
 3. Restart Home Assistant.
 
 ## Configuration
