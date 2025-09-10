@@ -23,6 +23,8 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 |Data collection		|Serial, DSMR, Telegram	|Serial, DSMR, Telegram	|API, DSMR, Telegram	|Modbus					|
 |Home Assistant ready	|✅						|✅						|✅						|✅						|
 |MQTT Connection		|Optional				|okosvillanyora.hu		|Optional				|okosvillanyora.hu		|
+|mDNS					|okosvillanyora.local 	|adaone.local 			|adabridge.local 		|pziot-e02.local 		|
+|Port					|8989					|80						|80						|80						|
 
 [More information...](https://greenhess.com/ismerd-meg-az-uj-ada-termekeinket "More information...")
 
@@ -113,21 +115,7 @@ Issues with mDNS and `.local` domain resolution may occur on certain systems. Th
 1. Use the device's IP address instead of the `.local` domain.
 2. Set up a local DNS server to resolve `.local` domains within your network.
 
-To address this issue manually in the code, locate the following section in the `__init__.py` file of the integration:
-
-```python
-"""Fetch JSON data from the okosvillanyora.local server."""
-url = "http://okosvillanyora.local:8989/json"
-```
-
-Replace the .local domain with the device's IP address, as shown below:
-
-```python
-"""Fetch JSON data from the okosvillanyora.local server."""
-url = "http://<ADA_DEVICE_IP>:8989/json"
-```
-
-After making this change, restart Home Assistant to apply the updates.
+Note: If you use same 2 or more devices on your local network (e.g: 2 or more ADA P1 Meter), just use ip address do not use mDNS.
 
 ---
 
