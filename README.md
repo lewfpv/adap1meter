@@ -26,7 +26,7 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 |mDNS					|okosvillanyora.local 	|adaone.local 			|adabridge.local 		|pziot-e02.local 		|
 |Port					|8989					|80						|80						|80						|
 
-[More information...](https://greenhess.com/ismerd-meg-az-uj-ada-termekeinket "More information...")
+[More information...](https://p1meter.eu/ada-p1-system "More information...")
 
 ## Features
 
