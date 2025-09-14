@@ -131,4 +131,4 @@ Note: If you use same 2 or more devices on your local network (e.g: 2 or more AD
 
 This project is licensed under the MIT License.
 
-![ADA P1 Meter Icon](images/icon.png)
+![ADA P1 Meter Icon](images/logo.png)

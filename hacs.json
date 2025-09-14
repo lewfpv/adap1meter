@@ -1,9 +1,10 @@
 {
   "name": "ADA Family Meters",
-  "homeassistant": "2022.12.0",
   "render_readme": true,
-  "domains": ["sensor"],
-  "iot_class": "local_polling",
+  "homeassistant": "2022.12.0",
+  "category": "integration",
+  "domain": "greenhess",
   "country": ["HU"],
+  "iot_class": "local_polling",
   "icon": "images/icon.png"
 }
