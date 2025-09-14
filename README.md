@@ -42,7 +42,7 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 1. Add this repository to HACS as a custom repository. Go to HACS -> Custom repositories (top right corner).
 (Required to install HACS first follow -> [THIS](https://www.hacs.xyz/docs/use/download/download/#to-download-hacs "HACS install tutorial"))
 
-![add custom repo png](images/addcustomrepo.png)
+![add custom repo png](images/addcustomrepo2.png)
 
 2. Search for "ADA Family Meters" in the HACS store and install it.
 3. Restart Home Assistant. :sparkles:
@@ -57,15 +57,15 @@ This is a custom integration for [Home Assistant](https://www.home-assistant.io/
 To configure the integration:
 1. Go to **Settings** > **Devices & Services** > **Add Integration**.
 
-![add integration](images/addintegration.png)
+![add integration](images/addintegration2.png)
 
 2. On the "Select brand" popup search for "ADA Family Meters"
 
-![select brand](images/selectbrand.png)
+![select brand](images/selectbrand2.png)
 
 3. On the "Select brand" popup select model, enter the connection details (e.g., hostname and port) or can use custom url (url must contain valid & compatible json data with the ada family). If you add multiple devices from the same model you can use prefix for better identification.
 
-![connect to png](images/connecttoada.png)
+![connect to png](images/connecttoada2.png)
 
 3. The integration will create sensors for each available measurement from the meter.
 
