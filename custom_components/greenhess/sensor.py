@@ -63,7 +63,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
                 sensor_config=sensor_config,
                 unique_id=unique_id,
                 prefix=prefix,
-                name=f"{prefix} {product_name} {sensor_config['friendly_name']}",
+                name = f"{prefix} {product_name} {sensor_config.get('friendly_name', sensor_key)}"
             )
         )
 
