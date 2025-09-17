@@ -74,7 +74,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 class Ada12Sensor(CoordinatorEntity, Entity):
     ENERGY_SENSORS = ["active_import_energy_total", "active_export_energy_total"]
 
-    def __init__(self, coordinator, product_type, sensor_key, sensor_config, unique_id, prefix, name):
+    def __init__(self, coordinator, product_type, sensor_key, sensor_config, unique_id, prefix, name, translation_key):
         super().__init__(coordinator)
         self._product_type = product_type
         self._sensor_key = sensor_key
