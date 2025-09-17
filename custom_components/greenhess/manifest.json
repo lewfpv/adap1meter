@@ -17,5 +17,9 @@
       "manufacturer": "GreenHESS",
       "modelName": "ADA"
     }
+  ],
+  "translations": [
+    "translations/en.json",
+    "translations/hu.json"
   ]
 }
