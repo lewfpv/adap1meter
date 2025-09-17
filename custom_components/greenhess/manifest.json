@@ -1,7 +1,7 @@
 {
   "domain": "greenhess",
   "name": "ADA Family Meters",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "config_flow": true,
   "documentation": "https://github.com/greenhess/adap1meter",
   "issue_tracker": "https://github.com/greenhess/adap1meter/issues",

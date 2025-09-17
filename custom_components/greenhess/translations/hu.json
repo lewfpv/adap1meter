@@ -23,158 +23,323 @@
     },
     "entity": {
         "sensor": {
-            "ada12_active_import_energy_total": {
+            "active_import_energy_total": {
                 "name": "Összes importált energia",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_import_energy_tariff_1": {
+            "active_import_energy_tariff_1": {
                 "name": "Importált energia tarifa 1",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_import_energy_tariff_2": {
+            "active_import_energy_tariff_2": {
                 "name": "Importált energia tarifa 2",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_import_energy_tariff_3": {
+            "active_import_energy_tariff_3": {
                 "name": "Importált energia tarifa 3",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_import_energy_tariff_4": {
+            "active_import_energy_tariff_4": {
                 "name": "Importált energia tarifa 4",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_export_energy_total": {
+            "active_export_energy_total": {
                 "name": "Összes exportált energia",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_export_energy_tariff_1": {
+            "total_active_energy": {
+                "name": "Összes aktív energia",
+                "state": {
+                    "unit_of_measurement": "kWh"
+                }
+            },
+            "active_export_energy_tariff_1": {
                 "name": "Exportált energia tarifa 1",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_export_energy_tariff_2": {
+            "active_export_energy_tariff_2": {
                 "name": "Exportált energia tarifa 2",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_reactive_import_energy": {
+            "active_export_energy_tariff_3": {
+                "name": "Exportált energia tarifa 3",
+                "state": {
+                    "unit_of_measurement": "kWh"
+                }
+            },
+            "active_export_energy_tariff_4": {
+                "name": "Exportált energia tarifa 4",
+                "state": {
+                    "unit_of_measurement": "kWh"
+                }
+            },
+            "reactive_import_energy": {
                 "name": "Reaktív importált energia",
                 "state": {
                     "unit_of_measurement": "kVArh"
                 }
             },
-            "ada12_reactive_export_energy": {
+            "reactive_export_energy": {
                 "name": "Reaktív exportált energia",
                 "state": {
                     "unit_of_measurement": "kVArh"
                 }
             },
-            "ada12_voltage_phase_l1": {
+            "reactive_energy_qi": {
+                "name": "Reaktív energia QI",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "reactive_energy_qii": {
+                "name": "Reaktív energia QII",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "reactive_energy_qiii": {
+                "name": "Reaktív energia QIII",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "reactive_energy_qiv": {
+                "name": "Reaktív energia QIV",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "reactive_power_qi": {
+                "name": "Reaktív teljesítmény QI (induktív)",
+                "state": {
+                    "unit_of_measurement": "kVAr"
+                }
+            },
+            "instantaneous_reactive_power_qi": {
+                "name": "Pillanatnyi reaktív teljesítmény QI",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "instantaneous_reactive_power_qii": {
+                "name": "Pillanatnyi reaktív teljesítmény QII",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "instantaneous_reactive_power_qiii": {
+                "name": "Pillanatnyi reaktív teljesítmény QIII",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "instantaneous_reactive_power_qiv": {
+                "name": "Pillanatnyi reaktív teljesítmény QIV",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "voltage_l1": {
                 "name": "Fázis 1 (L1) feszültség",
                 "state": {
                     "unit_of_measurement": "V"
                 }
             },
-            "ada12_voltage_phase_l2": {
+            "voltage_phase_l1": {
+                "name": "Fázis 1 (L1) feszültség",
+                "state": {
+                    "unit_of_measurement": "V"
+                }
+            },
+            "voltage_phase_l2": {
                 "name": "Fázis 2 (L2) feszültség",
                 "state": {
                     "unit_of_measurement": "V"
                 }
             },
-            "ada12_voltage_phase_l3": {
+            "voltage_phase_l3": {
                 "name": "Fázis 3 (L3) feszültség",
                 "state": {
                     "unit_of_measurement": "V"
                 }
             },
-            "ada12_current_phase_l1": {
+            "current_phase_l1": {
                 "name": "Fázis 1 (L1) áramerősség",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_current_phase_l2": {
+            "current_phase_l2": {
                 "name": "Fázis 2 (L2) áramerősség",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_current_phase_l3": {
+            "current_phase_l3": {
                 "name": "Fázis 3 (L3) áramerősség",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_power_factor": {
-                "name": "Teljesítménytényező"
+            "calculated_current_phase_l1": {
+                "name": "Fázis 1 (L1) számított áramerősség",
+                "state": {
+                    "unit_of_measurement": "A"
+                }
             },
-            "ada12_power_factor_l1": {
-                "name": "Teljesítménytényező (L1)"
+            "calculated_power_phase_l1": {
+                "name": "Fázis 1 (L1) számított energia",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
             },
-            "ada12_frequency": {
-                "name": "Frekvencia",
+            "current_phase_Bl1": {
+                "name": "Fázis 1 (L1) számított áramerősség",
+                "state": {
+                    "unit_of_measurement": "A"
+                }
+            },
+            "current_phase_Bl2": {
+                "name": "Fázis 2 (L2) számított áramerősség",
+                "state": {
+                    "unit_of_measurement": "A"
+                }
+            },
+            "current_phase_Bl3": {
+                "name": "Fázis 3 (L3) számított áramerősség",
+                "state": {
+                    "unit_of_measurement": "A"
+                }
+            },
+            "frequency": {
+                "name": "Hálózati frekvencia",
                 "state": {
                     "unit_of_measurement": "Hz"
                 }
             },
-            "ada12_instantaneous_power_import": {
+            "power_factor": {
+                "name": "Teljesítménytényező"
+            },
+            "power_factor_l1": {
+                "name": "Teljesítménytényező (L1)"
+            },
+            "power_factor_l2": {
+                "name": "Teljesítménytényező (L2)"
+            },
+            "power_factor_l3": {
+                "name": "Teljesítménytényező (L3)"
+            },
+            "instantaneous_power_import": {
                 "name": "Pillanatnyi importált teljesítmény",
                 "state": {
                     "unit_of_measurement": "kW"
                 }
             },
-            "ada12_instantaneous_power_export": {
+            "instantaneous_power_export": {
                 "name": "Pillanatnyi exportált teljesítmény",
                 "state": {
                     "unit_of_measurement": "kW"
                 }
             },
-            "ada12_current_limit_l1": {
+            "instantaneous_power_import_l1": {
+                "name": "Pillanatnyi importált teljesítmény L1",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
+            },
+            "instantaneous_power_import_l2": {
+                "name": "Pillanatnyi importált teljesítmény L2",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
+            },
+            "instantaneous_power_import_l3": {
+                "name": "Pillanatnyi importált teljesítmény L3",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
+            },
+            "instantaneous_power_export_l1": {
+                "name": "Pillanatnyi exportált teljesítmény L1",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
+            },
+            "instantaneous_power_export_l2": {
+                "name": "Pillanatnyi exportált teljesítmény L2",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
+            },
+            "instantaneous_power_export_l3": {
+                "name": "Pillanatnyi exportált teljesítmény L3",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
+            },
+            "current_limit_l1": {
                 "name": "Áramkorlát (L1)",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_current_limit_l2": {
+            "current_limit_l2": {
                 "name": "Áramkorlát (L2)",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_current_limit_l3": {
+            "current_limit_l3": {
                 "name": "Áramkorlát (L3)",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_circuit_breaker_status": {
-                "name": "Biztosíték állapota"
+            "circuit_breaker_status": {
+                "name": "Kismegszakító állapot"
             },
-            "ada12_limiter_threshold": {
+            "current_tariff": {
+                "name": "Aktív tarifa"
+            },
+            "limiter_threshold": {
                 "name": "Korlátozási küszöbérték",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_timestamp": {
+            "timestamp": {
                 "name": "Időbélyeg"
             },
-            "ada12_meter_serial_number": {
+            "meter_serial_number": {
                 "name": "Mérő sorozatszáma"
+            },
+            "active_energy_import_total": {
+                "name": "Összes importált energia",
+                "state": {
+                    "unit_of_measurement": "kWh"
+                }
+            },
+            "active_power_import": {
+                "name": "Aktív importált teljesítmény",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
             }
         }
     }

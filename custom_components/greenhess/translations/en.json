@@ -23,158 +23,323 @@
     },
     "entity": {
         "sensor": {
-            "ada12_active_import_energy_total": {
+            "active_import_energy_total": {
                 "name": "Total Imported Energy",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_import_energy_tariff_1": {
+            "active_import_energy_tariff_1": {
                 "name": "Imported Energy Tariff 1",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_import_energy_tariff_2": {
+            "active_import_energy_tariff_2": {
                 "name": "Imported Energy Tariff 2",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_import_energy_tariff_3": {
+            "active_import_energy_tariff_3": {
                 "name": "Imported Energy Tariff 3",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_import_energy_tariff_4": {
+            "active_import_energy_tariff_4": {
                 "name": "Imported Energy Tariff 4",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_export_energy_total": {
+            "active_export_energy_total": {
                 "name": "Total Exported Energy",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_export_energy_tariff_1": {
+            "total_active_energy": {
+                "name": "Total Active Energy",
+                "state": {
+                    "unit_of_measurement": "kWh"
+                }
+            },
+            "active_export_energy_tariff_1": {
                 "name": "Exported Energy Tariff 1",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_active_export_energy_tariff_2": {
+            "active_export_energy_tariff_2": {
                 "name": "Exported Energy Tariff 2",
                 "state": {
                     "unit_of_measurement": "kWh"
                 }
             },
-            "ada12_reactive_import_energy": {
+            "active_export_energy_tariff_3": {
+                "name": "Exported Energy Tariff 3",
+                "state": {
+                    "unit_of_measurement": "kWh"
+                }
+            },
+            "active_export_energy_tariff_4": {
+                "name": "Exported Energy Tariff 4",
+                "state": {
+                    "unit_of_measurement": "kWh"
+                }
+            },
+            "reactive_import_energy": {
                 "name": "Reactive Imported Energy",
                 "state": {
                     "unit_of_measurement": "kVArh"
                 }
             },
-            "ada12_reactive_export_energy": {
+            "reactive_export_energy": {
                 "name": "Reactive Exported Energy",
                 "state": {
                     "unit_of_measurement": "kVArh"
                 }
             },
-            "ada12_voltage_phase_l1": {
+            "reactive_energy_qi": {
+                "name": "Reactive Energy QI",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "reactive_energy_qii": {
+                "name": "Reactive Energy QII",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "reactive_energy_qiii": {
+                "name": "Reactive Energy QIII",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "reactive_energy_qiv": {
+                "name": "Reactive Energy QIV",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "reactive_power_qi": {
+                "name": "Reactive Power QI (inductive)",
+                "state": {
+                    "unit_of_measurement": "kVAr"
+                }
+            },
+            "instantaneous_reactive_power_qi": {
+                "name": "Instantaneous Reactive Power QI",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "instantaneous_reactive_power_qii": {
+                "name": "Instantaneous Reactive Power QII",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "instantaneous_reactive_power_qiii": {
+                "name": "Instantaneous Reactive Power QIII",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "instantaneous_reactive_power_qiv": {
+                "name": "Instantaneous Reactive Power QVI",
+                "state": {
+                    "unit_of_measurement": "kVArh"
+                }
+            },
+            "voltage_l1": {
                 "name": "Voltage Phase 1 (L1)",
                 "state": {
                     "unit_of_measurement": "V"
                 }
             },
-            "ada12_voltage_phase_l2": {
+            "voltage_phase_l1": {
+                "name": "Voltage Phase 1 (L1)",
+                "state": {
+                    "unit_of_measurement": "V"
+                }
+            },
+            "voltage_phase_l2": {
                 "name": "Voltage Phase 2 (L2)",
                 "state": {
                     "unit_of_measurement": "V"
                 }
             },
-            "ada12_voltage_phase_l3": {
+            "voltage_phase_l3": {
                 "name": "Voltage Phase 3 (L3)",
                 "state": {
                     "unit_of_measurement": "V"
                 }
             },
-            "ada12_current_phase_l1": {
+            "current_phase_l1": {
                 "name": "Current Phase 1 (L1)",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_current_phase_l2": {
+            "current_phase_l2": {
                 "name": "Current Phase 2 (L2)",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_current_phase_l3": {
+            "current_phase_l3": {
                 "name": "Current Phase 3 (L3)",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_power_factor": {
-                "name": "Power Factor"
+            "calculated_current_phase_l1": {
+                "name": "Current Phase 1 (calculated) (L1)",
+                "state": {
+                    "unit_of_measurement": "A"
+                }
             },
-            "ada12_power_factor_l1": {
-                "name": "Power Factor (L1)"
+            "calculated_power_phase_l1": {
+                "name": "Power Phase 1 (calculated) (L1)",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
             },
-            "ada12_frequency": {
+            "current_phase_Bl1": {
+                "name": "Current Phase 1 (calculated) (L1)",
+                "state": {
+                    "unit_of_measurement": "A"
+                }
+            },
+            "current_phase_Bl2": {
+                "name": "Current Phase 2 (calculated) (L2)",
+                "state": {
+                    "unit_of_measurement": "A"
+                }
+            },
+            "current_phase_Bl3": {
+                "name": "Current Phase 3 (calculated) (L3)",
+                "state": {
+                    "unit_of_measurement": "A"
+                }
+            },
+            "frequency": {
                 "name": "Frequency",
                 "state": {
                     "unit_of_measurement": "Hz"
                 }
             },
-            "ada12_instantaneous_power_import": {
+            "power_factor": {
+                "name": "Power Factor"
+            },
+            "power_factor_l1": {
+                "name": "Power Factor (L1)"
+            },
+            "power_factor_l2": {
+                "name": "Power Factor (L2)"
+            },
+            "power_factor_l3": {
+                "name": "Power Factor (L3)"
+            },
+            "instantaneous_power_import": {
                 "name": "Instantaneous Imported Power",
                 "state": {
                     "unit_of_measurement": "kW"
                 }
             },
-            "ada12_instantaneous_power_export": {
+            "instantaneous_power_export": {
                 "name": "Instantaneous Exported Power",
                 "state": {
                     "unit_of_measurement": "kW"
                 }
             },
-            "ada12_current_limit_l1": {
+            "instantaneous_power_import_l1": {
+                "name": "Instantaneous Imported Power L1",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
+            },
+            "instantaneous_power_import_l2": {
+                "name": "Instantaneous Imported Power L2",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
+            },
+            "instantaneous_power_import_l3": {
+                "name": "Instantaneous Imported Power L3",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
+            },
+            "instantaneous_power_export_l1": {
+                "name": "Instantaneous Exported Power L1",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
+            },
+            "instantaneous_power_export_l2": {
+                "name": "Instantaneous Exported Power L2",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
+            },
+            "instantaneous_power_export_l3": {
+                "name": "Instantaneous Exported Power L3",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
+            },
+            "current_limit_l1": {
                 "name": "Current Limit (L1)",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_current_limit_l2": {
+            "current_limit_l2": {
                 "name": "Current Limit (L2)",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_current_limit_l3": {
+            "current_limit_l3": {
                 "name": "Current Limit (L3)",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_circuit_breaker_status": {
+            "circuit_breaker_status": {
                 "name": "Circuit Breaker Status"
             },
-            "ada12_limiter_threshold": {
+            "current_tariff": {
+                "name": "Current Tariff"
+            },
+            "limiter_threshold": {
                 "name": "Limiter Threshold",
                 "state": {
                     "unit_of_measurement": "A"
                 }
             },
-            "ada12_timestamp": {
+            "timestamp": {
                 "name": "Timestamp"
             },
-            "ada12_meter_serial_number": {
+            "meter_serial_number": {
                 "name": "Meter Serial Number"
+            },
+            "active_energy_import_total": {
+                "name": "Total Imported Energy",
+                "state": {
+                    "unit_of_measurement": "kWh"
+                }
+            },
+            "active_power_import": {
+                "name": "Active Power Import",
+                "state": {
+                    "unit_of_measurement": "kW"
+                }
             }
         }
     }

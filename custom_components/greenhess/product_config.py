@@ -13,255 +13,255 @@ PRODUCT_CONFIGS = {
         # Összesített energia
         "active_import_energy_total": {
             "unit": "kWh",
-            "friendly_name": "Összes importált energia",
+            "friendly_name": "Total Imported Energy",
             "icon": "mdi:transmission-tower-import"
         },
         "active_export_energy_total": {
             "unit": "kWh",
-            "friendly_name": "Összes exportált energia",
+            "friendly_name": "Total Exported Energy",
             "icon": "mdi:transmission-tower-export"
         },
         "total_active_energy": {
             "unit": "kWh",
-            "friendly_name": "Összes aktív energia",
+            "friendly_name": "Total Active Energy",
             "icon": "mdi:lightning-bolt"
         },
 
         # Tarifa szerinti bontás
         "active_import_energy_tariff_1": {
             "unit": "kWh",
-            "friendly_name": "Importált energia tarifa 1",
+            "friendly_name": "Imported Energy Tariff 1",
             "icon": "mdi:counter"
         },
         "active_import_energy_tariff_2": {
             "unit": "kWh",
-            "friendly_name": "Importált energia tarifa 2",
+            "friendly_name": "Imported Energy Tariff 2",
             "icon": "mdi:counter"
         },
         "active_import_energy_tariff_3": {
             "unit": "kWh",
-            "friendly_name": "Importált energia tarifa 3",
+            "friendly_name": "Imported Energy Tariff 3",
             "icon": "mdi:counter"
         },
         "active_import_energy_tariff_4": {
             "unit": "kWh",
-            "friendly_name": "Importált energia tarifa 4",
+            "friendly_name": "Imported Energy Tariff 4",
             "icon": "mdi:counter"
         },
         "active_export_energy_tariff_1": {
             "unit": "kWh",
-            "friendly_name": "Exportált energia tarifa 1",
+            "friendly_name": "Exported Energy Tariff 1",
             "icon": "mdi:counter"
         },
         "active_export_energy_tariff_2": {
             "unit": "kWh",
-            "friendly_name": "Exportált energia tarifa 2",
+            "friendly_name": "Exported Energy Tariff 2",
             "icon": "mdi:counter"
         },
         "active_export_energy_tariff_3": {
             "unit": "kWh",
-            "friendly_name": "Exportált energia tarifa 3",
+            "friendly_name": "Exported Energy Tariff 3",
             "icon": "mdi:counter"
         },
         "active_export_energy_tariff_4": {
             "unit": "kWh",
-            "friendly_name": "Exportált energia tarifa 4",
+            "friendly_name": "Exported Energy Tariff 4",
             "icon": "mdi:counter"
         },
 
         # Reaktív energia (kVArh)
         "reactive_import_energy": {
             "unit": "kVArh",
-            "friendly_name": "Reaktív importált energia",
+            "friendly_name": "Reactive Imported Energy",
             "icon": "mdi:sine-wave"
         },
         "reactive_export_energy": {
             "unit": "kVArh",
-            "friendly_name": "Reaktív exportált energia",
+            "friendly_name": "Reactive Exported Energy",
             "icon": "mdi:sine-wave"
         },
         "reactive_energy_qi": {
             "unit": "kVArh",
-            "friendly_name": "Reaktív energia QI",
+            "friendly_name": "Reactive Energy QI",
             "icon": "mdi:sine-wave"
         },
         "reactive_energy_qii": {
             "unit": "kVArh",
-            "friendly_name": "Reaktív energia QII",
+            "friendly_name": "Reactive Energy QII",
             "icon": "mdi:sine-wave"
         },
         "reactive_energy_qiii": {
             "unit": "kVArh",
-            "friendly_name": "Reaktív energia QIII",
+            "friendly_name": "Reactive Energy QIII",
             "icon": "mdi:sine-wave"
         },
         "reactive_energy_qiv": {
             "unit": "kVArh",
-            "friendly_name": "Reaktív energia QIV",
+            "friendly_name": "Reactive Energy QIV",
             "icon": "mdi:sine-wave"
         },
 
         # Pillanatnyi teljesítmény
         "instantaneous_power_import": {
             "unit": "kW",
-            "friendly_name": "Pillanatnyi importált teljesítmény",
+            "friendly_name": "Instantaneous Imported Power",
             "icon": "mdi:flash"
         },
         "instantaneous_power_export": {
             "unit": "kW",
-            "friendly_name": "Pillanatnyi exportált teljesítmény",
+            "friendly_name": "Instantaneous Exported Power",
             "icon": "mdi:flash"
         },
         "instantaneous_power_import_l1": {
             "unit": "kW",
-            "friendly_name": "Importált teljesítmény L1",
+            "friendly_name": "Instantaneous Imported Power L1",
             "icon": "mdi:flash"
         },
         "instantaneous_power_import_l2": {
             "unit": "kW",
-            "friendly_name": "Importált teljesítmény L2",
+            "friendly_name": "Instantaneous Imported Power L2",
             "icon": "mdi:flash"
         },
         "instantaneous_power_import_l3": {
             "unit": "kW",
-            "friendly_name": "Importált teljesítmény L3",
+            "friendly_name": "Instantaneous Imported Power L3",
             "icon": "mdi:flash"
         },
         "instantaneous_power_export_l1": {
             "unit": "kW",
-            "friendly_name": "Exportált teljesítmény L1",
+            "friendly_name": "Instantaneous Exported Power L1",
             "icon": "mdi:flash"
         },
         "instantaneous_power_export_l2": {
             "unit": "kW",
-            "friendly_name": "Exportált teljesítmény L2",
+            "friendly_name": "Instantaneous Exported Power L2",
             "icon": "mdi:flash"
         },
         "instantaneous_power_export_l3": {
             "unit": "kW",
-            "friendly_name": "Exportált teljesítmény L3",
+            "friendly_name": "Instantaneous Exported Power L3",
             "icon": "mdi:flash"
         },
 
         # Pillanatnyi reaktív teljesítmény
         "instantaneous_reactive_power_qi": {
             "unit": "kVAr",
-            "friendly_name": "Reaktív teljesítmény QI",
+            "friendly_name": "Instantaneous Reactive Power QI",
             "icon": "mdi:sine-wave"
         },
         "instantaneous_reactive_power_qii": {
             "unit": "kVAr",
-            "friendly_name": "Reaktív teljesítmény QII",
+            "friendly_name": "Instantaneous Reactive Power QII",
             "icon": "mdi:sine-wave"
         },
         "instantaneous_reactive_power_qiii": {
             "unit": "kVAr",
-            "friendly_name": "Reaktív teljesítmény QIII",
+            "friendly_name": "Instantaneous Reactive Power QIII",
             "icon": "mdi:sine-wave"
         },
         "instantaneous_reactive_power_qiv": {
             "unit": "kVAr",
-            "friendly_name": "Reaktív teljesítmény QIV",
+            "friendly_name": "Instantaneous Reactive Power QIV",
             "icon": "mdi:sine-wave"
         },
 
         # Feszültségek
         "voltage_phase_l1": {
             "unit": "V",
-            "friendly_name": "Feszültség L1",
+            "friendly_name": "Voltage Phase 1 (L1)",
             "icon": "mdi:flash"
         },
         "voltage_phase_l2": {
             "unit": "V",
-            "friendly_name": "Feszültség L2",
+            "friendly_name": "Voltage Phase 2 (L2)",
             "icon": "mdi:flash"
         },
         "voltage_phase_l3": {
             "unit": "V",
-            "friendly_name": "Feszültség L3",
+            "friendly_name": "Voltage Phase 3 (L3)",
             "icon": "mdi:flash"
         },
 
         # Áramerősségek
         "current_phase_l1": {
             "unit": "A",
-            "friendly_name": "Áramerősség L1",
+            "friendly_name": "Current Phase 1 (L1)",
             "icon": "mdi:current-ac"
         },
         "current_phase_l2": {
             "unit": "A",
-            "friendly_name": "Áramerősség L2",
+            "friendly_name": "Current Phase 2 (L2)",
             "icon": "mdi:current-ac"
         },
         "current_phase_l3": {
             "unit": "A",
-            "friendly_name": "Áramerősség L3",
+            "friendly_name": "Current Phase 3 (L3)",
             "icon": "mdi:current-ac"
         },
         "current_phase_Bl1": {
             "unit": "A",
-            "friendly_name": "Áramerősség Bl1",
+            "friendly_name": "Current Phase 1 (calculated) (L1)",
             "icon": "mdi:current-ac"
         },
         "current_phase_Bl2": {
             "unit": "A",
-            "friendly_name": "Áramerősség Bl2",
+            "friendly_name": "Current Phase 2 (calculated) (L2)",
             "icon": "mdi:current-ac"
         },
         "current_phase_Bl3": {
             "unit": "A",
-            "friendly_name": "Áramerősség Bl3",
+            "friendly_name": "Current Phase 3 (calculated) (L3)",
             "icon": "mdi:current-ac"
         },
 
         # Frekvencia
         "frequency": {
             "unit": "Hz",
-            "friendly_name": "Hálózati frekvencia",
+            "friendly_name": "Frequency",
             "icon": "mdi:sine-wave"
         },
 
         # Teljesítménytényező
         "power_factor": {
             "unit": "",
-            "friendly_name": "Teljesítménytényező",
+            "friendly_name": "Power Factor",
             "icon": "mdi:cosine-wave"
         },
         "power_factor_l1": {
             "unit": "",
-            "friendly_name": "Teljesítménytényező L1",
+            "friendly_name": "Power Factor (L1)",
             "icon": "mdi:cosine-wave"
         },
         "power_factor_l2": {
             "unit": "",
-            "friendly_name": "Teljesítménytényező L2",
+            "friendly_name": "Power Factor (L2)",
             "icon": "mdi:cosine-wave"
         },
         "power_factor_l3": {
             "unit": "",
-            "friendly_name": "Teljesítménytényező L3",
+            "friendly_name": "Power Factor (L3)",
             "icon": "mdi:cosine-wave"
         },
 
         # Egyéb
         "meter_serial_number": {
             "unit": "",
-            "friendly_name": "Mérő sorozatszáma",
+            "friendly_name": "Meter Serial Number",
             "icon": "mdi:identifier"
         },
         "circuit_breaker_status": {
             "unit": "",
-            "friendly_name": "Kismegszakító állapot",
+            "friendly_name": "Circuit Breaker Status",
             "icon": "mdi:toggle-switch"
         },
         "current_tariff": {
             "unit": "",
-            "friendly_name": "Aktív tarifa",
+            "friendly_name": "Current Tariff",
             "icon": "mdi:calendar"
         },
         "timestamp": {
             "unit": "",
-            "friendly_name": "Időbélyeg",
+            "friendly_name": "Timestamp",
             "icon": "mdi:clock-outline"
         }
     }
@@ -274,97 +274,97 @@ PRODUCT_CONFIGS = {
         "sensors": {
             "active_import_energy_total": {
                 "unit": "kWh",
-                "friendly_name": "Összes importált energia",
+                "friendly_name": "Total Imported Energy",
                 "icon": "mdi:transmission-tower-import"
             },
             "active_export_energy_total": {
                 "unit": "kWh",
-                "friendly_name": "Összes exportált energia",
+                "friendly_name": "Total Exported Energy",
                 "icon": "mdi:transmission-tower-export"
             },
             "total_active_energy": {
                 "unit": "kWh",
-                "friendly_name": "Összes aktív energia",
+                "friendly_name": "Total Active Energy",
                 "icon": "mdi:transmission-tower-import"
             },
             "power_factor": {
                 "unit": "",
-                "friendly_name": "Teljesítménytényező",
+                "friendly_name": "Power Factor",
                 "icon": "mdi:cosine-wave"
             },
             "power_factor_l1": {
                 "unit": "",
-                "friendly_name": "Teljesítménytényező (L1)",
+                "friendly_name": "Power Factor (L1)",
                 "icon": "mdi:cosine-wave"
             },
             "power_factor_l2": {
                 "unit": "",
-                "friendly_name": "Teljesítménytényező (L2)",
+                "friendly_name": "Power Factor (L2)",
                 "icon": "mdi:cosine-wave"
             },
             "power_factor_l3": {
                 "unit": "",
-                "friendly_name": "Teljesítménytényező (L3)",
+                "friendly_name": "Power Factor (L3)",
                 "icon": "mdi:cosine-wave"
             },
             "voltage_phase_l1": {
                 "unit": "V",
-                "friendly_name": "Fázis 1 (L1) feszültség",
+                "friendly_name": "Voltage Phase 1 (L1)",
                 "icon": "mdi:flash"
             },
             "voltage_phase_l2": {
                 "unit": "V",
-                "friendly_name": "Fázis 2 (L2) feszültség",
+                "friendly_name": "Voltage Phase 2 (L2)",
                 "icon": "mdi:flash"
             },
             "voltage_phase_l3": {
                 "unit": "V",
-                "friendly_name": "Fázis 3 (L3) feszültség",
+                "friendly_name": "Voltage Phase 3 (L3)",
                 "icon": "mdi:flash"
             },
             "current_phase_l1": {
                 "unit": "A",
-                "friendly_name": "Fázis 1 (L1) áramerősség",
+                "friendly_name": "Current Phase 1 (L1)",
                 "icon": "mdi:current-ac"
             },
             "current_phase_Bl1": {
                 "unit": "A",
-                "friendly_name": "Fázis 1 (L1) kalkulált áramerősség",
+                "friendly_name": "Current Phase 1 (calculated) (L1)",
                 "icon": "mdi:current-ac"
             },
             "current_phase_l2": {
                 "unit": "A",
-                "friendly_name": "Fázis 2 (L2) áramerősség",
+                "friendly_name": "Current Phase 2 (L2)",
                 "icon": "mdi:current-ac"
             },
             "current_phase_Bl2": {
                 "unit": "A",
-                "friendly_name": "Fázis 2 (L2) kalkulált áramerősség",
+                "friendly_name": "Current Phase 2 (calculated) (L2)",
                 "icon": "mdi:current-ac"
             },
             "current_phase_l3": {
                 "unit": "A",
-                "friendly_name": "Fázis 3 (L3) áramerősség",
+                "friendly_name": "Current Phase 3 (L3)",
                 "icon": "mdi:current-ac"
             },
             "current_phase_Bl3": {
                 "unit": "A",
-                "friendly_name": "Fázis 3 (L3) kalkulált áramerősség",
+                "friendly_name": "Current Phase 3 (calculated) (L3)",
                 "icon": "mdi:current-ac"
             },
             "instantaneous_power_import": {
                 "unit": "kW",
-                "friendly_name": "Pillanatnyi importált teljesítmény",
+                "friendly_name": "Instantaneous Imported Power",
                 "icon": "mdi:flash"
             },
             "instantaneous_power_export": {
                 "unit": "kW",
-                "friendly_name": "Pillanatnyi exportált teljesítmény",
+                "friendly_name": "Instantaneous Exported Power",
                 "icon": "mdi:flash"
             },
             "meter_serial_number": {
                 "unit": "",
-                "friendly_name": "Mérő sorozatszáma",
+                "friendly_name": "Meter Serial Number",
                 "icon": "mdi:identifier"
             }
         }
@@ -377,22 +377,22 @@ PRODUCT_CONFIGS = {
         "sensors": {
             "active_import_energy_total": {
                 "unit": "kWh",
-                "friendly_name": "Összes importált energia",
+                "friendly_name": "Total Imported Energy",
                 "icon": "mdi:transmission-tower-import"
             },
             "voltage_phase_l1": {
                 "unit": "V",
-                "friendly_name": "Fázis 1 (L1) feszültség",
+                "friendly_name": "Voltage Phase 1 (L1)",
                 "icon": "mdi:flash"
             },
             "current_phase_l1": {
                 "unit": "A",
-                "friendly_name": "Fázis 1 (L1) áramerősség",
+                "friendly_name": "Current Phase 1 (L1)",
                 "icon": "mdi:current-ac"
             },
             "instantaneous_power_import": {
                 "unit": "kW",
-                "friendly_name": "Pillanatnyi importált teljesítmény",
+                "friendly_name": "Instantaneous Imported Power",
                 "icon": "mdi:flash"
             }
         }
@@ -405,52 +405,52 @@ PRODUCT_CONFIGS = {
         "sensors": {
             "active_energy_import_total": {
                 "unit": "kWh",
-                "friendly_name": "Összes importált energia",
+                "friendly_name": "Total Imported Energy",
                 "icon": "mdi:transmission-tower-import"
             },
             "voltage_l1": {
                 "unit": "V",
-                "friendly_name": "Fázis 1 (L1) feszültség",
+                "friendly_name": "Voltage Phase 1 (L1)",
                 "icon": "mdi:flash"
             },
             "current_phase_l1": {
                 "unit": "A",
-                "friendly_name": "Fázis 1 (L1) áramerősség",
+                "friendly_name": "Current Phase 1 (L1)",
                 "icon": "mdi:current-ac"
             },
             "calculated_current_phase_l1": {
                 "unit": "A",
-                "friendly_name": "Fázis 1 (L1) kalkulált áramerősség",
+                "friendly_name": "Current Phase 1 (calculated) (L1)",
                 "icon": "mdi:current-ac"
             },
             "calculated_power_phase_l1": {
                 "unit": "kW",
-                "friendly_name": "Számított teljesítmény L1",
+                "friendly_name": "Power Phase 1 (calculated) (L1)",
                 "icon": "mdi:flash"
             },
             "power_factor_l1": {
                 "unit": "",
-                "friendly_name": "Teljesítménytényező (L1)",
+                "friendly_name": "Power Factor (L1)",
                 "icon": "mdi:cosine-wave"
             },
             "active_power_import": {
                 "unit": "kW",
-                "friendly_name": "Importált teljesítmény",
+                "friendly_name": "Active Power Import",
                 "icon": "mdi:flash"
             },
             "reactive_power_qi": {
                 "unit": "kVAr",
-                "friendly_name": "Reaktív teljesítmény QI (induktív)",
+                "friendly_name": "Reactive Power QI (inductive)",
                 "icon": "mdi:sine-wave"
             },
             "frequency": {
                 "unit": "Hz",
-                "friendly_name": "Frekvencia",
+                "friendly_name": "Frequency",
                 "icon": "mdi:waveform"
             },
             "meter_serial_number": {
                 "unit": "",
-                "friendly_name": "Mérő sorozatszáma",
+                "friendly_name": "Meter Serial Number",
                 "icon": "mdi:identifier"
             }
         }
