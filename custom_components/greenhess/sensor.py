@@ -52,22 +52,23 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
     await coordinator.async_config_entry_first_refresh()
 
-    sensors = []
-    for sensor_key, sensor_config in product_sensors.items():
-        unique_id = f"{url}_{product_type}_{sensor_key}"
-        sensors.append(
-            Ada12Sensor(
-                coordinator=coordinator,
-                product_type=product_type,
-                sensor_key=sensor_key,
-                translation_key=sensor_key,
-                sensor_config=sensor_config,
-                unique_id=unique_id,
-                prefix=prefix,
-                #name = f"{prefix} {product_name} {sensor_config.get('friendly_name', sensor_key)}"
-                name=None
-            )
+sensors = []
+for sensor_key, sensor_config in product_sensors.items():
+    unique_id = f"{url}_{product_type}_{sensor_key}"
+    # A name csak a prefix + product_name fix része
+    display_name = f"{prefix} {product_name}" if prefix or product_name else None
+    sensors.append(
+        Ada12Sensor(
+            coordinator=coordinator,
+            product_type=product_type,
+            sensor_key=sensor_key,
+            sensor_config=sensor_config,
+            unique_id=unique_id,
+            prefix=prefix,
+            name=display_name,
+            translation_key=sensor_key,  # fordításhoz
         )
+    )
 
     async_add_entities(sensors)
 
@@ -94,9 +95,12 @@ class Ada12Sensor(CoordinatorEntity, Entity):
         elif sensor_config["unit"]:
             self._attributes["unit_of_measurement"] = sensor_config["unit"]
 
-    @property
-    def name(self):
-        return self._name
+@property
+def name(self):
+    # Ha van translation_key, a HA UI a hu.json alapján jeleníti meg a nevet
+    if self._translation_key:
+        return None  # fordítás engedélyezése
+    return self._name
 
     @property
     def unique_id(self):
