@@ -60,6 +60,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
                 coordinator=coordinator,
                 product_type=product_type,
                 sensor_key=sensor_key,
+                translation_key=sensor_key,
                 sensor_config=sensor_config,
                 unique_id=unique_id,
                 prefix=prefix,
@@ -83,7 +84,6 @@ class Ada12Sensor(CoordinatorEntity, Entity):
         self._name = name
         self._attributes = {"icon": sensor_config["icon"]}
         self._attributes["uid"] = unique_id  #extra sor az attributes-ba
-        self._attributes["translation_key"] = sensor_key #nyelv
 
         # Energy panelhez szükséges beállítás  
         if sensor_key in self.ENERGY_SENSORS:
