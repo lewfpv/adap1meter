@@ -83,6 +83,7 @@ class Ada12Sensor(CoordinatorEntity, Entity):
         self._name = name
         self._attributes = {"icon": sensor_config["icon"]}
         self._attributes["uid"] = unique_id  #extra sor az attributes-ba
+        self._attributes["translation_key"] = sensor_key #nyelv
 
         # Energy panelhez szükséges beállítás  
         if sensor_key in self.ENERGY_SENSORS:
