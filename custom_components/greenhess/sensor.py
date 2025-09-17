@@ -82,9 +82,9 @@ class Ada12Sensor(CoordinatorEntity, Entity):
         self._unique_id = unique_id
         self._prefix = prefix
         self._name = name
+        self._translation_key = translation_key
         self._attributes = {"icon": sensor_config["icon"]}
         self._attributes["uid"] = unique_id  #extra sor az attributes-ba
-
         # Energy panelhez szükséges beállítás  
         if sensor_key in self.ENERGY_SENSORS:
             self._attributes["device_class"] = "energy"
@@ -100,6 +100,10 @@ class Ada12Sensor(CoordinatorEntity, Entity):
     @property
     def unique_id(self):
         return self._unique_id
+
+    @property
+    def translation_key(self):
+        return self._translation_key
 
     @property
     def state(self):
