@@ -4,6 +4,7 @@ import async_timeout
 from datetime import timedelta
 
 from homeassistant.helpers.entity import Entity
+from homeassistant.helpers.translation import get_translations
 from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
     DataUpdateCoordinator,
@@ -111,5 +112,6 @@ class Ada12Sensor(CoordinatorEntity, Entity):
 
     @property
     def name(self):
-        # Ha None, a HA automatikusan a translation_key alapján választja a nevet
-        return None
+    translations = get_translations(self.hass)
+    lang = self.hass.config.language
+    return translations.get(lang, {}).get("sensor", {}).get(self._translation_key, {}).get("name") or self._translation_key
