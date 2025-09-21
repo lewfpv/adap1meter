@@ -112,6 +112,6 @@ class Ada12Sensor(CoordinatorEntity, Entity):
 
     @property
     def name(self):
-    translations = get_translations(self.hass)
-    lang = self.hass.config.language
-    return translations.get(lang, {}).get("sensor", {}).get(self._translation_key, {}).get("name") or self._translation_key
+        translations = get_translations(self.hass)
+        lang = self.hass.config.language
+        return translations.get(lang, {}).get("sensor", {}).get(self._translation_key, {}).get("name") or self._translation_key
