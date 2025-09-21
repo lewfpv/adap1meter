@@ -108,3 +108,8 @@ class Ada12Sensor(CoordinatorEntity, Entity):
     @property
     def extra_state_attributes(self):
         return self._attributes
+
+    @property
+    def name(self):
+        # Ha None, a HA automatikusan a translation_key alapján választja a nevet
+        return None
