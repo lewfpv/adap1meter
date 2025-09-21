@@ -63,7 +63,8 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
                 sensor_config=sensor_config,
                 unique_id=unique_id,
                 prefix=prefix,
-                name=f"{prefix} {product_name} {sensor_config['friendly_name']}",
+                translation_key=sensor_key
+                #name=f"{prefix} {product_name} {sensor_config['friendly_name']}",
             )
         )
 
@@ -73,17 +74,16 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 class Ada12Sensor(CoordinatorEntity, Entity):
     ENERGY_SENSORS = ["active_import_energy_total", "active_export_energy_total"]
 
-    def __init__(self, coordinator, product_type, sensor_key, sensor_config, unique_id, prefix, name):
+    def __init__(self, coordinator, product_type, sensor_key, sensor_config, unique_id, prefix, translation_key):
         super().__init__(coordinator)
         self._product_type = product_type
         self._sensor_key = sensor_key
         self._sensor_config = sensor_config
         self._unique_id = unique_id
         self._prefix = prefix
-        self._name = name
         self._attributes = {"icon": sensor_config["icon"]}
         self._attributes["uid"] = unique_id  #extra sor az attributes-ba
-
+        self._translation_key = translation_key
         # Energy panelhez szükséges beállítás  
         if sensor_key in self.ENERGY_SENSORS:
             self._attributes["device_class"] = "energy"
@@ -93,8 +93,8 @@ class Ada12Sensor(CoordinatorEntity, Entity):
             self._attributes["unit_of_measurement"] = sensor_config["unit"]
 
     @property
-    def name(self):
-        return self._name
+    def translation_key(self):
+        return self._translation_key
 
     @property
     def unique_id(self):
