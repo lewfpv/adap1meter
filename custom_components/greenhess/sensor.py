@@ -68,6 +68,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
                 sensor_config=sensor_config,
                 unique_id=unique_id,
                 prefix=prefix,
+                product_name=product_name,
                 translation_key=sensor_key
             )
         )
