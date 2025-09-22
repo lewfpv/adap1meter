@@ -18,6 +18,7 @@ SCAN_INTERVAL = timedelta(seconds=10)
 
 async def async_setup_entry(hass, config_entry, async_add_entities):    
     _LOGGER.warning("Aktuális HA nyelv: %s", hass.config.language)
+
     config_data = {**config_entry.data, **config_entry.options}
     prefix = config_data.get("prefix", "")
     product_type = config_data.get("product_type", "ada12")
@@ -63,6 +64,16 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
             f"{prefix} {product_name} "
             f"{sensor_config['friendly_name'] if language == 'hu' else sensor_config.get('friendly_name_en', sensor_key)}"
         )
+
+        # 🔧 DEBUG LOG
+        _LOGGER.debug(
+        "Creating sensor: key=%s, translation_key=%s, language=%s, display_name=%s",
+        sensor_key,
+        sensor_key,  # translation_key = sensor_key
+        language,
+        display_name
+    )
+
 
         sensors.append(
             Ada12Sensor(
