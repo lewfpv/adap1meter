@@ -100,13 +100,9 @@ class Ada12Sensor(CoordinatorEntity, Entity):
 
     @property
     def name(self):
-        name_parts = []
-        if self._prefix:
-            name_parts.append(self._prefix)
-        if self._product_name:
-            name_parts.append(self._product_name)
-        name_parts.append(super().name or self._translation_key)
-        return " ".join(name_parts)
+        name_parts = [self._prefix, self._product_name, super().name or self._translation_key]
+        # Csak a tényleges, nem None/Undefined értékeket használjuk
+        return " ".join(str(part) for part in name_parts if part is not None)
 
     @property
     def unique_id(self):
