@@ -16,7 +16,8 @@ _LOGGER = logging.getLogger(__name__)
 SCAN_INTERVAL = timedelta(seconds=10)
 
 
-async def async_setup_entry(hass, config_entry, async_add_entities):
+async def async_setup_entry(hass, config_entry, async_add_entities):    
+    _LOGGER.warning("Aktuális HA nyelv: %s", hass.config.language)
     config_data = {**config_entry.data, **config_entry.options}
     prefix = config_data.get("prefix", "")
     product_type = config_data.get("product_type", "ada12")
