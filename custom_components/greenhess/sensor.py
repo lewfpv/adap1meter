@@ -17,7 +17,7 @@ SCAN_INTERVAL = timedelta(seconds=10)
 
 
 async def async_setup_entry(hass, config_entry, async_add_entities):    
-    _LOGGER.warning("Aktuális HA nyelv: %s", hass.config.language)
+    #_LOGGER.warning("Aktuális HA nyelv: %s", hass.config.language)
 
     config_data = {**config_entry.data, **config_entry.options}
     prefix = config_data.get("prefix", "")
@@ -58,22 +58,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     for sensor_key, sensor_config in product_sensors.items():
         unique_id = f"{url}_{product_type}_{sensor_key}"
 
-        language = hass.config.language  # pl. "hu" vagy "en"
-
-        display_name = (
-            f"{prefix} {product_name} "
-            f"{sensor_config['friendly_name'] if language == 'hu' else sensor_config.get('friendly_name_en', sensor_key)}"
-        )
-
-        # 🔧 DEBUG LOG
-        _LOGGER.debug(
-        "Creating sensor: key=%s, translation_key=%s, language=%s, display_name=%s",
-        sensor_key,
-        sensor_key,  # translation_key = sensor_key
-        language,
-        display_name
-    )
-
+        _LOGGER.debug("Creating sensor: key=%s, translation_key=%s", sensor_key, sensor_key)
 
         sensors.append(
             Ada12Sensor(
@@ -83,8 +68,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
                 sensor_config=sensor_config,
                 unique_id=unique_id,
                 prefix=prefix,
-                name=display_name
-                #name=f"{prefix} {product_name} {sensor_config['friendly_name']}",
+                translation_key=sensor_key
             )
         )
 
@@ -94,18 +78,18 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 class Ada12Sensor(CoordinatorEntity, Entity):
     ENERGY_SENSORS = ["active_import_energy_total", "active_export_energy_total"]
 
-    def __init__(self, coordinator, product_type, sensor_key, sensor_config, unique_id, prefix, name):
+    def __init__(self, coordinator, product_type, sensor_key, sensor_config, unique_id, prefix, product_name, translation_key):
         super().__init__(coordinator)
         self._product_type = product_type
         self._sensor_key = sensor_key
         self._sensor_config = sensor_config
         self._unique_id = unique_id
         self._prefix = prefix
-        self._name = name
+        self._product_name = product_name
+        self._translation_key = translation_key
         self._attributes = {"icon": sensor_config["icon"]}
-        self._attributes["uid"] = unique_id  #extra sor az attributes-ba
+        self._attributes["uid"] = unique_id
 
-        # Energy panelhez szükséges beállítás  
         if sensor_key in self.ENERGY_SENSORS:
             self._attributes["device_class"] = "energy"
             self._attributes["state_class"] = "total_increasing"
@@ -115,7 +99,13 @@ class Ada12Sensor(CoordinatorEntity, Entity):
 
     @property
     def name(self):
-        return self._name
+        name_parts = []
+        if self._prefix:
+            name_parts.append(self._prefix)
+        if self._product_name:
+            name_parts.append(self._product_name)
+        name_parts.append(super().name or self._translation_key)
+        return " ".join(name_parts)
 
     @property
     def unique_id(self):
