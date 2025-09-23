@@ -100,21 +100,8 @@ class Ada12Sensor(CoordinatorEntity, Entity):
 
     @property
     def name(self):
-        name_parts = []
-    
-        if self._prefix:
-            name_parts.append(self._prefix)
-        if self._product_name:
-            name_parts.append(self._product_name)
-    
-        # Ha super().name értéke nem ad értelmes stringet, fallback a translation_key-re
-        base_name = getattr(super(), "name", None)
-        if base_name is None or "UndefinedType" in str(base_name):
-            base_name = self._translation_key or "Unknown"
-    
-        name_parts.append(str(base_name))
-    
-        return " ".join(name_parts)
+        # Csak a _translation_key-t használjuk
+        return str(self._translation_key or "Unknown")
 
     @property
     def unique_id(self):
