@@ -12,6 +12,7 @@ from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
     UpdateFailed,
 )
+from homeassistant.const import STATE_UNKNOWN
 
 from .product_config import get_product_sensors, get_product_name
 
@@ -21,14 +22,13 @@ SCAN_INTERVAL = timedelta(seconds=10)
 
 async def async_setup_entry(hass, config_entry, async_add_entities):
     """Set up the sensor from a config entry."""
-    #_LOGGER.warning("Aktuális HA nyelv: %s", hass.config.language)
 
     config_data = {**config_entry.data, **config_entry.options}
     prefix = config_data.get("prefix", "")
     product_type = config_data.get("product_type", "ada12")
 
     # ------------------------
-    # URL logika
+    # URL logic
     # ------------------------
     url = config_data.get("url")
     if not url:
@@ -61,9 +61,13 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
     sensors = []
     for sensor_key, sensor_config in product_sensors.items():
+        # This unique_id is good for identifying the entity internally.
         unique_id = f"{url}_{product_type}_{sensor_key}"
 
-        _LOGGER.debug("Creating sensor: key=%s, translation_key=%s", sensor_key, sensor_key)
+        # The 'translation_key' must be a simple, short string that matches a key in your JSON file.
+        translation_key = sensor_key 
+
+        _LOGGER.debug("Creating sensor: key=%s, translation_key=%s", sensor_key, translation_key)
 
         sensors.append(
             Ada12Sensor(
@@ -74,7 +78,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
                 unique_id=unique_id,
                 prefix=prefix,
                 product_name=product_name,
-                translation_key=sensor_key
+                translation_key=translation_key
             )
         )
 
@@ -95,18 +99,31 @@ class Ada12Sensor(CoordinatorEntity, Entity):
         self._prefix = prefix
         self._product_name = product_name
         
-        # This is the key that Home Assistant will use to find the translation
+        # This is the key that Home Assistant will use to find the translation.
         self._attr_translation_key = translation_key
         
         self._attributes = {"icon": sensor_config["icon"]}
         self._attributes["uid"] = unique_id
 
         if sensor_key in self.ENERGY_SENSORS:
-            self._attributes["device_class"] = "energy"
-            self._attributes["state_class"] = "total_increasing"
-            self._attributes["unit_of_measurement"] = "kWh"
+            self._attr_device_class = "energy"
+            self._attr_state_class = "total_increasing"
+            self._attr_unit_of_measurement = "kWh"
         elif sensor_config["unit"]:
-            self._attributes["unit_of_measurement"] = sensor_config["unit"]
+            self._attr_unit_of_measurement = sensor_config["unit"]
+
+        # ----------------------------------------------------------------------
+        # ADDED DEBUG LINE
+        # This will show you what Home Assistant's name attribute is
+        # populated with after the class is initialized.
+        # ----------------------------------------------------------------------
+        _LOGGER.debug(
+            "Sensor '%s' initialized. Unique ID: %s. Translation Key: %s. Final Name: %s",
+            self.__class__.__name__,
+            self.unique_id,
+            self._attr_translation_key,
+            self.name # Access the `name` property to force HA to get the value
+        )
 
     @property
     def unique_id(self):
@@ -114,10 +131,11 @@ class Ada12Sensor(CoordinatorEntity, Entity):
         return self._unique_id
 
     @property
-    def state(self):
+    def native_value(self):
         """Return the state of the sensor."""
         data = self.coordinator.data or {}
-        return data.get(self._sensor_key, 0 if self._sensor_config["unit"] else "")
+        value = data.get(self._sensor_key, None)
+        return value
 
     @property
     def extra_state_attributes(self):
