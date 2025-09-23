@@ -1,3 +1,6 @@
+"""A simple sensor template for Home Assistant."""
+from __future__ import annotations
+
 import logging
 import aiohttp
 import async_timeout
@@ -16,7 +19,8 @@ _LOGGER = logging.getLogger(__name__)
 SCAN_INTERVAL = timedelta(seconds=10)
 
 
-async def async_setup_entry(hass, config_entry, async_add_entities):    
+async def async_setup_entry(hass, config_entry, async_add_entities):
+    """Set up the sensor from a config entry."""
     #_LOGGER.warning("Aktuális HA nyelv: %s", hass.config.language)
 
     config_data = {**config_entry.data, **config_entry.options}
@@ -36,6 +40,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     product_name = get_product_name(product_type)
 
     async def async_update_data():
+        """Fetch data from the device."""
         try:
             async with aiohttp.ClientSession() as session:
                 async with async_timeout.timeout(10):
@@ -77,9 +82,11 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
 
 class Ada12Sensor(CoordinatorEntity, Entity):
+    """Ada12 custom sensor."""
     ENERGY_SENSORS = ["active_import_energy_total", "active_export_energy_total"]
 
     def __init__(self, coordinator, product_type, sensor_key, sensor_config, unique_id, prefix, product_name, translation_key):
+        """Initialize the sensor."""
         super().__init__(coordinator)
         self._product_type = product_type
         self._sensor_key = sensor_key
@@ -87,7 +94,10 @@ class Ada12Sensor(CoordinatorEntity, Entity):
         self._unique_id = unique_id
         self._prefix = prefix
         self._product_name = product_name
-        self._translation_key = translation_key
+        
+        # This is the key that Home Assistant will use to find the translation
+        self._attr_translation_key = translation_key
+        
         self._attributes = {"icon": sensor_config["icon"]}
         self._attributes["uid"] = unique_id
 
@@ -99,19 +109,17 @@ class Ada12Sensor(CoordinatorEntity, Entity):
             self._attributes["unit_of_measurement"] = sensor_config["unit"]
 
     @property
-    def name(self):
-        # Csak a _translation_key-t használjuk
-        return str(self._translation_key or "Unknown")
-
-    @property
     def unique_id(self):
+        """Return the unique ID for this sensor."""
         return self._unique_id
 
     @property
     def state(self):
+        """Return the state of the sensor."""
         data = self.coordinator.data or {}
         return data.get(self._sensor_key, 0 if self._sensor_config["unit"] else "")
 
     @property
     def extra_state_attributes(self):
+        """Return the state attributes."""
         return self._attributes
