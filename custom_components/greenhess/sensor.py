@@ -99,7 +99,7 @@ class Ada12Sensor(CoordinatorEntity, Entity):
         self._prefix = prefix
         self._product_name = product_name
         
-        # This is the key that Home Assistant will use to find thetranslation.
+        # This is the key that Home Assistant will use to find the     translation.
         self._attr_translation_key = translation_key
         
         self._attributes = {"icon": sensor_config["icon"]}
